@@ -10,6 +10,21 @@
     <meta name="keywords" content="{{ site.keywords }}" />
 
     <koken:title />
+
+    <koken:asset file="css/bootstrap.min.css" />
   </head>
 
   <body>
+
+    <div class="navbar">
+      <div class="container">
+        <koken:link to="front" title="Home" class="navbar-brand">
+          {{ site.title }}
+        </koken:link>
+        <p class="navbar-text pull-left">{{ site.tagline }}</p>
+
+        <koken:navigation class="nav navbar-nav pull-right" />
+      </div>
+    </div>
+
+    <div class="container">
