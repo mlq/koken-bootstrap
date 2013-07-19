@@ -2,7 +2,7 @@
 
 <koken:load>
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 index-slider">
       <koken:pulse />
     </div> <!-- row -->
   </div> <!-- col-12 -->
@@ -19,7 +19,7 @@
         <div class="media">
           <koken:featured_image>
             <koken:link class="pull-left">
-              <koken:img width="64" height="64" class="media-object" />
+              <koken:img width="128" height="128" class="media-object" />
             </koken:link>
           </koken:featured_image>
 
