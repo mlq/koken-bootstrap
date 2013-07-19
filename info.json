@@ -1,0 +1,10 @@
+{
+	"name": "koken-bootstrap",
+	"version": "0.0.1",
+	"description": "Blank theme build upon the bootstrap framework.",
+	"author": {
+		"name": "Moritz Lipp",
+		"link": "http://mlq.me"
+	},
+	"koken_version_required": "0.8.0-beta.1"
+}
