@@ -127,15 +127,9 @@
       <div class="row thumbnails">
         <koken:loop>
           <div class="col-lg-2">
-              <koken:content_image>
-                <koken:link class="thumbnail">
-                  <koken:img size="1:1" />
-                </koken:link>
-              </koken:content_image>
-              <!-- Displayed if the asset is a video -->
-              <koken:content_video>
-                <koken:video />
-              </koken:content_video>
+            <koken:link class="thumbnail">
+              <koken:img size="1:1" />
+            </koken:link>
           </div>
         </koken:loop>
       </div> <!-- row -->
