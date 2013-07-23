@@ -1,0 +1,110 @@
+<koken:include file="_includes/header.html" />
+
+<koken:load limit="10">
+  <div class="row">
+    <div class="col-8">
+      <koken:loop>
+        <article class="panel">
+          <header class="panel-heading">
+            <h2><koken:link>{{ essay.title }}</koken:link></h2>
+
+            <p>
+              <koken:time />
+            </p>
+          </header>
+
+          {{ essay.content }}
+
+          <footer class="panel-footer">
+            <!-- Link to any albums assigned as the essay's topic -->
+            <koken:topics>
+              <p>
+              <strong>Topics:</strong>
+              <koken:loop separator=", ">
+                <koken:link>
+                  {{ album.title }}
+                </koken:link>
+              </koken:loop>
+              </p>
+            </koken:topics>
+
+            <!-- Publish the essay's categories. Links to archive.essays.lens -->
+            <koken:categories>
+            <p>
+            <strong>Category:</strong>
+            <koken:loop separator=", ">
+            <koken:link>
+            {{ category.title }}
+            </koken:link>
+            </koken:loop>
+            </p>
+            </koken:categories>
+
+            <!-- Publish the essays' tags. Links to archive.essays.lens -->
+            <koken:tags>
+            <p>
+            <strong>Tags:</strong>
+            <koken:loop separator=", ">
+            <koken:link>
+            {{ tag.title }}
+            </koken:link>
+            </koken:loop>
+            </p>
+            </koken:tags>
+          </footer>
+        </article>
+      </koken:loop>
+
+      <koken:include file="_includes/pagination.html" />
+    </div> <!-- col-8 -->
+    <div class="col-4">
+      <koken:load source="archives" summary="true" limit_to="essays" order_by="essay_count">
+        <h3><i class="icon-calendar"></i> Date</h3>
+        <ul>
+          <koken:loop>
+            <li>
+              <koken:link to="archive_essays">
+                {{ title }} ({{ counts.essays }})
+              </koken:link>
+            </li>
+          </koken:loop>
+        </ul>
+      </koken:load>
+
+      <koken:load source="categories" summary="true" limit_to="essays" order_by="essay_count">
+        <h3><i class="icon-folder-close-alt"></i> Category</h3>
+        <ul>
+          <koken:loop>
+            <li>
+              <koken:link to="archive_essays">
+                {{ title }} ({{ counts.essays }})
+              </koken:link>
+            </li>
+          </koken:loop>
+        </ul>
+      </koken:load>
+
+      <koken:load source="tags" summary="true" limit_to="essays" order_by="essay_count">
+        <h3><i class="icon-tags"></i> Tags</h3>
+        <ul>
+          <koken:loop>
+            <li>
+              <koken:link to="archive_essays">
+                {{ title }} ({{ counts.essays }})
+              </koken:link>
+            </li>
+          </koken:loop>
+        </ul>
+      </koken:load>
+
+      <h3><i class="icon-rss"></i> RSS</h3>
+      <a href="{{ rss.essays }}">Subscribe to latest essays</a>
+    </div> <!-- col-4 -->
+  </div> <!-- row -->
+<koken:else>
+  <koken:note>
+    No essays found. Create some in Text.
+  </koken:note>
+</koken:load>
+
+<koken:include file="_includes/footer.html" />
