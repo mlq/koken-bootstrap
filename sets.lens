@@ -4,8 +4,12 @@
   <div class="row">
 		<div class="col-8">
 			<koken:loop>
-				<div class="item">
-					<h2><koken:link>{{ album.title }}</koken:link></h2>
+        <article class="panel item">
+          <header class="panel-heading">
+            <koken:link title="View {{ album.title }}">
+              {{ album.title }}
+            </koken:link>
+          </header>
 
 					<koken:link>
 						<koken:img size="8:5" />
@@ -13,28 +17,31 @@
 
 					{{ album.summary paragraphs="true" }}
 
-					<koken:categories>
-						<p>
-							<strong>Categories:</strong>
-							<koken:loop separator=", ">
-								<koken:link>
-									{{ category.title }}
-								</koken:link>
-							</koken:loop>
-						</p>
-					</koken:categories>
+          <footer class="panel-footer">
+            <p>{{ album.date }}</p>
+            <koken:categories>
+              <p>
+                <strong>Categories:</strong>
+                <koken:loop separator=", ">
+                  <koken:link>
+                    {{ category.title }}
+                  </koken:link>
+                </koken:loop>
+              </p>
+            </koken:categories>
 
-					<koken:tags>
-						<p>
-							<strong>Tags:</strong>
-							<koken:loop separator=", ">
-								<koken:link>
-									{{ tag.title }}
-								</koken:link>
-							</koken:loop>
-						</p>
-					</koken:tags>
-				</div>
+            <koken:tags>
+              <p>
+                <strong>Tags:</strong>
+                <koken:loop separator=", ">
+                  <koken:link>
+                    {{ tag.title }}
+                  </koken:link>
+                </koken:loop>
+              </p>
+            </koken:tags>
+          </footer>
+        </article>
 			</koken:loop>
 
       <koken:include file="_includes/pagination.html" />
