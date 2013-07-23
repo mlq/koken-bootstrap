@@ -45,7 +45,7 @@
     </div> <!-- col-8 -->
     <div class="col-4">
       <koken:load source="archives" summary="true" limit_to="albums">
-        <h3>View albums by date</h3>
+        <h3><i class="icon-calendar"></i> Date</h3>
         <ul>
           <koken:loop>
             <li>
@@ -58,7 +58,7 @@
       </koken:load>
 
       <koken:load source="categories" summary="true" limit_to="albums" order_by="album_count">
-        <h3>View albums by category</h3>
+        <h3><i class="icon-folder-close-alt"></i> Category</h3>
         <ul>
           <koken:loop>
             <li>
@@ -71,7 +71,7 @@
       </koken:load>
 
       <koken:load source="tags" summary="true" limit_to="albums" order_by="album_count">
-        <h3>View albums by tag</h3>
+        <h3><i class="icon-tags"></i> Tags</h3>
         <ul>
           <koken:loop>
             <li>

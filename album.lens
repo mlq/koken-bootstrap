@@ -34,7 +34,7 @@
         </koken:previous>
 
         <li>
-          <koken:link to="albums">View all</koken:link>
+          <koken:link to="albums" bind_to_key="up">View all</koken:link>
         </li>
 
         <koken:next>
