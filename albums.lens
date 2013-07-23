@@ -7,7 +7,9 @@
         <koken:loop>
           <div class="col-lg-6 item">
             <div class="thumbnail">
-              <koken:img size="8:5" />
+              <koken:link>
+                <koken:img size="8:5" />
+              </koken:link>
 
               <div class="caption">
                 <h3><koken:link>{{ album.title }}</koken:link></h3>
