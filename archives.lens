@@ -1,0 +1,63 @@
+<koken:include file="_includes/header.html" />
+
+<div class="row">
+  <div class="col-12">
+    <h1>Archives</h1>
+
+    <!-- Load this template's source data (archives) and limit for pagination -->
+    <koken:load limit="5">
+      <ul>
+        <koken:loop>
+          <li><b>{{ archive.title }}</b>
+            <ul>
+              <koken:not empty="preview.content">
+              <li>
+                <koken:link to="archive_contents">Content</koken:link>
+                <ul class="archive content">
+                  <koken:loop data="preview.content">
+                    <li>
+                      <koken:link>
+                        {{ content.title | content.filename }}
+                      </koken:link>
+                    </li>
+                  </koken:loop>
+                </ul>
+              </li>
+              </koken:not>
+              <koken:not empty="preview.albums">
+              <li>
+                <koken:link to="archive_albums">Albums</koken:link>
+                <ul class="archive albums">
+                  <koken:loop data="preview.albums">
+                    <li>
+                      <koken:link>{{ album.title }}</koken:link>
+                    </li>
+                  </koken:loop>
+                 </ul>
+               </li>
+               </koken:not>
+               <koken:not empty="preview.essays">
+               <li>
+                 <koken:link to="archive_essays">Essays</koken:link>
+                 <ul class="archive essays">
+                   <koken:loop data="preview.essays">
+                     <li>
+                       <koken:link>
+                         {{ essay.title }}
+                        </koken:link>
+                     </li>
+                   </koken:loop>
+                 </ul>
+               </li>
+              </koken:not>
+            </ul>
+          </li>
+        </koken:loop>
+      </ul>
+
+      <koken:include file="_includes/pagination.html" />
+    </koken:load>
+  </div> <!-- col-12-->
+</div> <!-- row -->
+
+<koken:include file="_includes/footer.html" />
