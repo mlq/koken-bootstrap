@@ -41,7 +41,7 @@
         </koken:next>
       </ul> <!-- pager -->
 
-			<article>
+      <article>
         <ul class="nav nav-tabs">
           <li class="active disabled">
             <a href="#">
@@ -58,27 +58,27 @@
             </ul>
           </li>
           <li class="pull-right">
-						<koken:link>
+            <koken:link>
               <i class="icon-link"></i> Permalink
             </koken:link>
-					</li>
+          </li>
         </ul>
 
-				<header>
-					<h2>
-						{{ essay.title }}
-					</h2>
+        <header>
+          <h2>
+            {{ essay.title }}
+          </h2>
 
-					<p>
-						<strong>Published:</strong> <koken:time />
-					</p>
-				</header>
+          <p>
+            <strong>Published:</strong> <koken:time />
+          </p>
+        </header>
 
-				{{ essay.content }}
+        {{ essay.content }}
 
-				<footer>
-					<koken:topics>
-						<h3>Related content</h3>
+        <footer>
+          <koken:topics>
+            <h3>Related content</h3>
             <div class="row">
               <koken:loop>
                 <div class="col-lg-3">
@@ -96,9 +96,9 @@
                 </div> <!-- col-lg-3 -->
               </koken:loop>
             </div> <!-- row -->
-					</koken:topics>
+          </koken:topics>
 
-					<koken:categories>
+          <koken:categories>
             <p>
               <strong>Category:</strong>
               <koken:loop separator=", ">
@@ -107,28 +107,28 @@
                 </koken:link>
               </koken:loop>
             </p>
-					</koken:categories>
+          </koken:categories>
 
-					<koken:tags>
-						<p>
-						  <strong>Tags:</strong>
+          <koken:tags>
+            <p>
+              <strong>Tags:</strong>
               <koken:loop separator=", ">
                 <koken:link>
                   {{ tag.title }}
                 </koken:link>
              </koken:loop>
-						</p>
-					</koken:tags>
-				</footer>
+            </p>
+          </koken:tags>
+        </footer>
 
-				<koken:discussion>
-					<h3>Comments</h3>
-					{{ discussion }}
-				</koken:discussion>
-			</article>
-		</div> <!-- col-8 -->
-		<div class="col-4">
-			<aside>
+        <koken:discussion>
+          <h3>Comments</h3>
+          {{ discussion }}
+        </koken:discussion>
+      </article>
+    </div> <!-- col-8 -->
+    <div class="col-4">
+      <aside>
         <koken:categories>
           <koken:loop>
             <h3>{{ labels.essay.plural }} in {{ category.title }}</h3>
@@ -143,8 +143,8 @@
                   </koken:loop>
                 </ul>
               </koken:load>
-				    </koken:loop>
-				</koken:categories>
+            </koken:loop>
+        </koken:categories>
 
         <koken:load source="archives" summary="true" limit_to="essays" order_by="essay_count">
           <h3><i class="icon-calendar"></i> Date</h3>
@@ -184,7 +184,7 @@
             </koken:loop>
           </ul>
         </koken:load>
-			</aside>
+      </aside>
     </div> <!-- col-4 -->
   </div> <!-- row -->
 <koken:else>

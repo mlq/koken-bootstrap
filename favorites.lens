@@ -2,13 +2,13 @@
 
 <koken:load limit="50">
   <div class="row">
-		<div class="col-8">
-			<koken:loop>
-				<h2>
-					<koken:link title="View {{ content.filename }}">
-						{{ content.title | content.filename }}
-					</koken:link>
-				</h2>
+    <div class="col-8">
+      <koken:loop>
+        <h2>
+          <koken:link title="View {{ content.filename }}">
+            {{ content.title | content.filename }}
+          </koken:link>
+        </h2>
 
         <koken:content_image>
           <koken:link title="View {{ content.filename }}">
@@ -20,51 +20,51 @@
           <koken:video />
         </koken:content_video>
 
-				<p>
-					{{ content.caption }}
-				</p>
+        <p>
+          {{ content.caption }}
+        </p>
 
-				<p>
-					<strong>Uploaded:</strong> {{ content.uploaded_on }}
-				</p>
-			</koken:loop>
+        <p>
+          <strong>Uploaded:</strong> {{ content.uploaded_on }}
+        </p>
+      </koken:loop>
 
-			<p>
-				<koken:include file="_includes/pagination.html" />
-			</p>
-		</div> <!-- col-8-->
-		<div class="col-4">
-			<koken:load source="archives" summary="true" limit_to="content">
+      <p>
+        <koken:include file="_includes/pagination.html" />
+      </p>
+    </div> <!-- col-8-->
+    <div class="col-4">
+      <koken:load source="archives" summary="true" limit_to="content">
         <h3><i class="icon-calendar"></i> Date</h3>
-				<koken:loop>
-					<koken:link to="archive_contents">
-						{{ title }} ({{ counts.content }})
-					</koken:link>
-					<br>
-				</koken:loop>
-			</koken:load>
+        <koken:loop>
+          <koken:link to="archive_contents">
+            {{ title }} ({{ counts.content }})
+          </koken:link>
+          <br>
+        </koken:loop>
+      </koken:load>
 
-			<koken:load source="categories" summary="true" limit_to="content" order_by="content_count">
+      <koken:load source="categories" summary="true" limit_to="content" order_by="content_count">
         <h3><i class="icon-folder-close-alt"></i> Category</h3>
-				<koken:loop>
-					<koken:link to="archive_contents">
-						{{ title }} ({{ counts.content }})
-					</koken:link>
-					<br>
-				</koken:loop>
-			</koken:load>
+        <koken:loop>
+          <koken:link to="archive_contents">
+            {{ title }} ({{ counts.content }})
+          </koken:link>
+          <br>
+        </koken:loop>
+      </koken:load>
 
-			<koken:load source="tags" summary="true" limit_to="content" order_by="content_count">
+      <koken:load source="tags" summary="true" limit_to="content" order_by="content_count">
         <h3><i class="icon-tags"></i> Tags</h3>
-				<koken:loop>
-					<koken:link to="archive_contents">
-						{{ title }} ({{ counts.content }})
-					</koken:link>
-					<br>
-				</koken:loop>
-			</koken:load>
+        <koken:loop>
+          <koken:link to="archive_contents">
+            {{ title }} ({{ counts.content }})
+          </koken:link>
+          <br>
+        </koken:loop>
+      </koken:load>
 
-		</div> <!-- col-4 -->
+    </div> <!-- col-4 -->
   </div> <!-- row -->
 <koken:else>
   <koken:note>
