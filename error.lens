@@ -1,0 +1,10 @@
+<koken:include file="_includes/header.html" />
+
+<div class="row">
+  <div class="col-12">
+    <h1>Error {{ routed_variables.code }}</h1>
+    <p>An unexpected error occured.</p>
+  </div>
+</div>
+
+<koken:include file="_includes/footer.html" />
