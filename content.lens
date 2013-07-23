@@ -1,0 +1,210 @@
+<koken:include file="_includes/header.html" />
+
+<koken:load>
+  <koken:head>
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:title" content="{{ content.title|content.filename strip_html="true" }}" />
+    <meta property="og:description" content="{{ content.caption strip_html="true" }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+    <meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+    <meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+    <meta property="og:url" content="{{ content.url }}" />
+    <koken:content_image>
+      <koken:not empty="profile.twitter">
+        <meta name="twitter:card" content="photo" />
+        <meta name="twitter:site" content="@{{ profile.twitter }}" />
+        <meta name="twitter:creator" content="@{{ profile.twitter }}" />
+      </koken:not>
+    </koken:content_image>
+  </koken:head>
+
+  <div class="row">
+    <div class="col-12">
+      <ul class="pager">
+        <koken:parent>
+          <koken:variable name="previous_label" value="Newer" />
+          <koken:variable name="next_label" value="Older" />
+        <koken:else>
+          <koken:variable name="previous_label" value="Previous" />
+          <koken:variable name="next_label" value="Next" />
+        </koken:parent>
+
+        <koken:previous>
+          <li class="previous">
+            <koken:link title="{{ previous_label }}" bind_to_key="left">
+              &larr; {{ previous_label }}
+            </koken:link>
+          </li>
+        </koken:previous>
+
+        <li class="disabled">
+          <a href="#">
+            {{ content.context.position }} of {{ content.context.total }}
+          </a>
+        </li>
+
+        <koken:next>
+          <li class="next">
+            <koken:link title="{{ next_label }}" bind_to_key="right">
+              {{ next_label }} &rarr;
+            </koken:link>
+          </li>
+        </koken:next>
+      </ul> <!-- pager -->
+
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#tab-content" data-toggle="tab">
+            {{ content.title | content.filename }}
+          </a>
+        </li>
+
+        <li class="dropdown pull-right">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-share-alt"></i> Share <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <koken:include file="_includes/share-content-list.html" />
+          </ul>
+        </li>
+        <li class="pull-right">
+          <koken:link lightbox="true" class="button" bind_to_key="l">
+            <i class="icon-resize-full"></i> Lightbox
+          </koken:link>
+        </li>
+        <koken:exif>
+        <li class="pull-right">
+          <a href="#tab-exif" data-toggle="tab">
+            <i class="icon-camera-retro"></i> Exif
+          </a>
+        </li>
+        </koken:exif>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab-content">
+          <koken:content_image>
+            <koken:link lightbox="true" bind_to_key="l">
+              <koken:img />
+            </koken:link>
+          </koken:content_image>
+
+          <koken:content_video>
+            <koken:video />
+          </koken:content_video>
+
+          <div class="row">
+            <div class="col-8">
+              <h3>
+                {{ content.title | content.filename }}
+              </h3>
+
+              <koken:not empty="content.caption">
+                {{ content.caption paragraphs="true" }}
+              <koken:else>
+                <p>No caption set.</p>
+              </koken:not>
+            </div> <!-- col-8 -->
+            <div class="col-4">
+              <p>
+                <strong>License:</strong> {{ content.license.clean }}
+              </p>
+
+              <p>
+                <strong>Uploaded:</strong> {{ content.uploaded_on }}
+              </p>
+
+              <p>
+                <strong>Captured:</strong> {{ content.captured_on }}
+              </p>
+
+              <koken:categories>
+                <p>
+                  <strong>Categories:</strong>
+                  <koken:loop separator=", ">
+                    <koken:link>
+                      {{ category.title }}
+                    </koken:link>
+                  </koken:loop>
+                </p>
+              </koken:categories>
+
+              <koken:tags>
+                <p>
+                  <strong>Tags:</strong>
+                  <koken:loop separator=", ">
+                    <koken:link>
+                      {{ tag.title }}
+                    </koken:link>
+                  </koken:loop>
+                </p>
+              </koken:tags>
+
+              <koken:iptc>
+                <p>
+                  <strong>IPTC:</strong>
+                    <koken:loop separator="&nbsp;/">
+                        {{ iptc.label }}: {{ iptc.value }}
+                    </koken:loop>
+                  </p>
+              </koken:iptc>
+
+              <koken:max_download>
+                <p>
+                  <strong>Download image:</strong> <koken:link>
+                    {{ max_download.label }}&nbsp;({{ max_download.width }}x{{ max_download.height }})
+                  </koken:link>
+                </p>
+              </koken:max_download>
+
+              <koken:parent>
+                <p>
+                  <strong>From the album:</strong> <koken:link title="View {{ album.title }}">
+                  {{ album.title }}</koken:link>
+                </p>
+              </koken:parent>
+
+              <koken:geolocation>
+                <a href="http://maps.google.com/?q={{ geolocation.latitude }},{{ geolocation.longitude }}" target="_blank">View map</a>
+              </koken:geolocation>
+
+            </div> <!-- col-4 -->
+          </div> <!-- row -->
+        </div> <!-- tab-description -->
+        <koken:exif>
+          <div class="tab-pane" id="tab-exif">
+            <dl class="dl-horizontal">
+              <koken:not empty="exif.model">
+                <dt>Model</dt>
+                <dd>{{ exif.model }}</dd>
+              </koken:not>
+              <koken:not empty="exif.exposure">
+                <dt>Exposure</dt>
+                <dd>{{ exif.exposure }}</dd>
+              </koken:not>
+              <koken:not empty="exif.aperture">
+                <dt>Aperture</dt>
+                <dd>{{ exif.aperture }}</dd>
+              </koken:not>
+              <koken:not empty="exif.focal_length">
+                <dt>Focal length</dt>
+                <dd>{{ exif.focal_length }}</dd>
+              </koken:not>
+              <koken:not empty="exif.iso_speed_ratings">
+                <dt>ISO</dt>
+                <dd>{{ exif.iso_speed_ratings }}</dd>
+              </koken:not>
+            </dl>
+          </div> <!-- tab-exif -->
+        </koken:exif>
+      </div> <!-- tab-content -->
+    </div> <!-- col-12 -->
+  </div> <!-- row -->
+<koken:else>
+  <koken:note>
+    No content found
+  </koken:note>
+</koken:load>
+
+<koken:include file="_includes/footer.html" />
