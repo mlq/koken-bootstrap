@@ -1,7 +1,7 @@
 {
 	"name": "koken-bootstrap",
 	"version": "0.0.1",
-	"description": "Blank theme build upon the bootstrap framework.",
+	"description": "Theme build upon the Twitter Bootstrap framework and Font Awesome.",
 	"author": {
 		"name": "Moritz Lipp",
 		"link": "http://mlq.me"
