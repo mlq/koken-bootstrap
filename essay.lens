@@ -51,7 +51,7 @@
 
           <li class="dropdown pull-right">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="icon-share-alt"></i> Share <span class="caret"></span>
+              <i class="fa fa-share"></i> Share <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               <koken:include file="_includes/share-essay-list.html" />
@@ -59,7 +59,7 @@
           </li>
           <li class="pull-right">
             <koken:link>
-              <i class="icon-link"></i> Permalink
+              <i class="fa fa-link"></i> Permalink
             </koken:link>
           </li>
         </ul>
@@ -147,7 +147,7 @@
         </koken:categories>
 
         <koken:load source="archives" summary="true" limit_to="essays" order_by="essay_count">
-          <h3><i class="icon-calendar"></i> Date</h3>
+          <h3><i class="fa fa-calendar"></i> Date</h3>
           <ul>
             <koken:loop>
               <li>
@@ -160,7 +160,7 @@
         </koken:load>
 
         <koken:load source="categories" summary="true" limit_to="essays" order_by="essay_count">
-          <h3><i class="icon-folder-close-alt"></i> Category</h3>
+          <h3><i class="fa fa-folder"></i> Category</h3>
           <ul>
           <koken:loop>
             <li>
@@ -173,7 +173,7 @@
         </koken:load>
 
         <koken:load source="tags" summary="true" limit_to="essays" order_by="essay_count">
-          <h3><i class="icon-tags"></i> Tags</h3>
+          <h3><i class="fa fa-tags"></i> Tags</h3>
           <ul>
             <koken:loop>
               <li>

@@ -63,7 +63,7 @@
     </div> <!-- col-sm-8 -->
     <div class="col-sm-4">
       <koken:load source="archives" summary="true" limit_to="essays" order_by="essay_count">
-        <h3><i class="icon-calendar"></i> Date</h3>
+        <h3><i class="fa fa-calendar"></i> Date</h3>
         <ul>
           <koken:loop>
             <li>
@@ -76,7 +76,7 @@
       </koken:load>
 
       <koken:load source="categories" summary="true" limit_to="essays" order_by="essay_count">
-        <h3><i class="icon-folder-close-alt"></i> Category</h3>
+        <h3><i class="fa fa-folder"></i> Category</h3>
         <ul>
           <koken:loop>
             <li>
@@ -89,7 +89,7 @@
       </koken:load>
 
       <koken:load source="tags" summary="true" limit_to="essays" order_by="essay_count">
-        <h3><i class="icon-tags"></i> Tags</h3>
+        <h3><i class="fa fa-tags"></i> Tags</h3>
         <ul>
           <koken:loop>
             <li>
@@ -101,7 +101,7 @@
         </ul>
       </koken:load>
 
-      <h3><i class="icon-rss"></i> RSS</h3>
+      <h3><i class="fa fa-rss"></i> RSS</h3>
       <a href="{{ rss.essays }}">Subscribe to latest essays</a>
     </div> <!-- col-sm-4 -->
   </div> <!-- row -->

@@ -62,7 +62,7 @@
 
         <li class="dropdown pull-right">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="icon-share-alt"></i> Share <span class="caret"></span>
+            <i class="fa fa-share"></i> Share <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <koken:include file="_includes/share-content-list.html" />
@@ -70,13 +70,13 @@
         </li>
         <li class="pull-right">
           <koken:link lightbox="true" class="button" bind_to_key="l">
-            <i class="icon-resize-full"></i> Lightbox
+            <i class="fa fa-expand"></i> Lightbox
           </koken:link>
         </li>
         <koken:exif>
         <li class="pull-right">
           <a href="#tab-exif" data-toggle="tab">
-            <i class="icon-camera-retro"></i> Exif
+            <i class="fa fa-camera-retro"></i> Exif
           </a>
         </li>
         </koken:exif>
