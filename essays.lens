@@ -1,4 +1,4 @@
-<koken:include file="_includes/header.html" />
+<koken:include file="_layout/header.html" />
 
 <koken:load limit="10">
   <div class="row">
@@ -59,7 +59,7 @@
         </article>
       </koken:loop>
 
-      <koken:include file="_includes/pagination.html" />
+      <koken:include file="_include/pagination.html" />
     </div> <!-- col-sm-8 -->
     <div class="col-sm-4">
       <koken:load source="archives" summary="true" limit_to="essays" order_by="essay_count">
@@ -111,4 +111,4 @@
   </koken:note>
 </koken:load>
 
-<koken:include file="_includes/footer.html" />
+<koken:include file="_layout/footer.html" />

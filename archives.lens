@@ -1,4 +1,4 @@
-<koken:include file="_includes/header.html" />
+<koken:include file="_layout/header.html" />
 
 <div class="row">
   <div class="col-sm-12">
@@ -55,9 +55,9 @@
         </koken:loop>
       </ul>
 
-      <koken:include file="_includes/pagination.html" />
+      <koken:include file="_include/pagination.html" />
     </koken:load>
   </div> <!-- col-sm-12-->
 </div> <!-- row -->
 
-<koken:include file="_includes/footer.html" />
+<koken:include file="_layout/footer.html" />

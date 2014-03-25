@@ -1,4 +1,4 @@
-<koken:include file="_includes/header.html" />
+<koken:include file="_layout/header.html" />
 
 <koken:load>
   <koken:head>
@@ -65,7 +65,7 @@
             <i class="fa fa-share"></i> Share <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <koken:include file="_includes/share-content-list.html" />
+            <koken:include file="_include/share-content-list.html" />
           </ul>
         </li>
         <li class="pull-right">
@@ -207,4 +207,4 @@
   </koken:note>
 </koken:load>
 
-<koken:include file="_includes/footer.html" />
+<koken:include file="_layout/footer.html" />

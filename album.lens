@@ -1,4 +1,4 @@
-<koken:include file="_includes/header.html" />
+<koken:include file="_layout/header.html" />
 
 <koken:load limit="30">
   <koken:head>
@@ -57,7 +57,7 @@
             <i class="fa fa-share"></i> Share <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <koken:include file="_includes/share-album-list.html" />
+            <koken:include file="_include/share-album-list.html" />
           </ul>
         </li>
         </koken:if>
@@ -134,7 +134,7 @@
         </koken:loop>
       </div> <!-- row -->
 
-      <koken:include file="_includes/pagination.html" />
+      <koken:include file="_include/pagination.html" />
     </div> <!-- col-sm-12 -->
   </div> <!-- row -->
 <koken:else>
@@ -143,4 +143,4 @@
   </koken:note>
 </koken:load>
 
-<koken:include file="_includes/footer.html" />
+<koken:include file="_layout/footer.html" />
