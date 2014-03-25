@@ -40,7 +40,7 @@
             <koken:tags>
               <p>
                 <strong>Tags:</strong>
-                <koken:loop separator=", ">
+                <koken:loop separator=" ">
                   <koken:link>
                     {{ tag.title }}
                   </koken:link>
@@ -54,25 +54,12 @@
       <koken:include file="_include/pagination.html" />
     </div> <!-- col-sm-8 -->
     <div class="col-sm-4">
-      <koken:load source="archives" summary="true" limit_to="albums">
-        <h3><i class="fa fa-calendar"></i> Date</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_albums">
-                {{ title }} ({{ counts.albums }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-
       <koken:load source="categories" summary="true" limit_to="albums" order_by="album_count">
         <h3><i class="fa fa-folder"></i> Category</h3>
         <ul>
           <koken:loop>
             <li>
-              <koken:link to="archive_albums">
+              <koken:link to="category">
                 {{ title }} ({{ counts.albums }})
               </koken:link>
             </li>
@@ -85,7 +72,7 @@
         <ul>
           <koken:loop>
             <li>
-              <koken:link to="archive_albums">
+              <koken:link to="tag">
                 {{ title }} ({{ counts.albums }})
               </koken:link>
             </li>
