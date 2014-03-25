@@ -68,7 +68,7 @@
         </li>
         <li class="pull-right">
           <koken:link lightbox="true" class="button" bind_to_key="l">
-            <i class="fa fa-resize-full"></i> Lightbox
+            <i class="fa fa-expand"></i> Lightbox
           </koken:link>
         </li>
       </ul>
