@@ -7,7 +7,6 @@ Features
 --------
 
   * All the features of [Twitter Bootstrap](http://twitter.github.io/bootstrap)
-    - Built on v3.0.0-rc1
   * Built with [LESS](http://lesscss.org)
   * [Font Awesome](http://fortawesome.github.io/Font-Awesome) icons
   * Responsive design
