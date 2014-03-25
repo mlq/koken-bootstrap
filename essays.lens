@@ -2,18 +2,22 @@
 
 <koken:load limit="10">
   <div class="row">
-    <div class="col-8">
+    <div class="col-sm-8">
       <koken:loop>
-        <article class="panel">
+        <article class="panel panel-default">
           <header class="panel-heading">
-            <h2><koken:link>{{ essay.title }}</koken:link></h2>
-
-            <p>
+            <div class="pull-left">
+              <h3 class="panel-title"><koken:link>{{ essay.title }}</koken:link></h3>
+            </div>
+            <div class="pull-right">
               <koken:time />
-            </p>
+            </div>
+            <div class="clearfix"></div>
           </header>
 
-          {{ essay.content }}
+          <section class="panel-body">
+            {{ essay.content }}
+          </section>
 
           <footer class="panel-footer">
             <!-- Link to any albums assigned as the essay's topic -->
@@ -56,8 +60,8 @@
       </koken:loop>
 
       <koken:include file="_includes/pagination.html" />
-    </div> <!-- col-8 -->
-    <div class="col-4">
+    </div> <!-- col-sm-8 -->
+    <div class="col-sm-4">
       <koken:load source="archives" summary="true" limit_to="essays" order_by="essay_count">
         <h3><i class="icon-calendar"></i> Date</h3>
         <ul>
@@ -99,7 +103,7 @@
 
       <h3><i class="icon-rss"></i> RSS</h3>
       <a href="{{ rss.essays }}">Subscribe to latest essays</a>
-    </div> <!-- col-4 -->
+    </div> <!-- col-sm-4 -->
   </div> <!-- row -->
 <koken:else>
   <koken:note>

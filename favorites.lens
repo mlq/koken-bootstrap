@@ -2,28 +2,30 @@
 
 <koken:load limit="50">
   <div class="row">
-    <div class="col-8">
+    <div class="col-sm-8">
       <koken:loop>
-        <article class="panel item">
+        <article class="panel panel-default item">
           <header class="panel-heading">
-            <koken:link title="View {{ content.filename }}">
+            <koken:link title="View {{ content.filename }}" class="panel-title">
               {{ content.title | content.filename }}
             </koken:link>
           </header>
 
-          <koken:content_image>
-            <koken:link title="View {{ content.filename }}">
-              <koken:img />
-            </koken:link>
-          </koken:content_image>
+          <section class="panelbody">
+            <koken:content_image>
+              <koken:link title="View {{ content.filename }}">
+                <koken:img />
+              </koken:link>
+            </koken:content_image>
 
-          <koken:content_video>
-            <koken:video />
-          </koken:content_video>
+            <koken:content_video>
+              <koken:video />
+            </koken:content_video>
 
-          <p>
-            {{ content.caption }}
-          </p>
+            <p>
+              {{ content.caption }}
+            </p>
+          </section>
 
           <footer class="panel-footer">
             <p>{{ content.date }}</p>
@@ -55,8 +57,8 @@
       <p>
         <koken:include file="_includes/pagination.html" />
       </p>
-    </div> <!-- col-8-->
-    <div class="col-4">
+    </div> <!-- col-sm-8-->
+    <div class="col-sm-4">
       <koken:load source="archives" summary="true" limit_to="content">
         <h3><i class="icon-calendar"></i> Date</h3>
         <ul>
@@ -96,7 +98,7 @@
         </ul>
       </koken:load>
 
-    </div> <!-- col-4 -->
+    </div> <!-- col-sm-4 -->
   </div> <!-- row -->
 <koken:else>
   <koken:note>

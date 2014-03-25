@@ -1,7 +1,7 @@
 <koken:include file="_includes/header.html" />
 <koken:load limit="10">
   <div class="row">
-    <div class="col-8">
+    <div class="col-sm-8">
       <koken:loop>
         <article class="panel item">
           <header class="panel-heading">
@@ -44,8 +44,8 @@
       </koken:loop>
 
       <koken:include file="_includes/pagination.html" />
-    </div> <!-- col-8 -->
-    <div class="col-4">
+    </div> <!-- col-sm-8 -->
+    <div class="col-sm-4">
       <koken:load source="archives" summary="true" limit_to="content">
         <h3><i class="icon-calendar"></i> Date</h3>
         <ul>
@@ -84,7 +84,7 @@
           </koken:loop>
         </ul>
       </koken:load>
-    </div> <!-- col-4 -->
+    </div> <!-- col-sm-4 -->
   </div> <!-- row -->
 <koken:else>
   <koken:note>

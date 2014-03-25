@@ -25,7 +25,7 @@
   </koken:head>
 
   <div class="row album">
-    <div class="col-12">
+    <div class="col-sm-12">
       <ul class="pager">
         <koken:previous>
           <li class="previous">
@@ -74,14 +74,14 @@
       </ul>
 
       <div class="row">
-        <div class="col-8">
+        <div class="col-sm-8">
           <h2>
             {{ album.title }}
           </h2>
 
           {{ album.description paragraphs="true" }}
-        </div> <!-- col-8 -->
-        <div class="col-4">
+        </div> <!-- col-sm-8 -->
+        <div class="col-sm-4">
           <koken:topics>
             <p>
               <strong>Related content:</strong>
@@ -121,12 +121,12 @@
               {{ album.title }}</koken:link>
             </p>
           </koken:parent>
-        </div> <!-- col-4 -->
+        </div> <!-- col-sm-4 -->
       </div> <!-- row -->
 
       <div class="row thumbnails">
         <koken:loop>
-          <div class="col-lg-2">
+          <div class="col-sm-2">
             <koken:link class="thumbnail">
               <koken:img size="1:1" />
             </koken:link>
@@ -135,7 +135,7 @@
       </div> <!-- row -->
 
       <koken:include file="_includes/pagination.html" />
-    </div> <!-- col-12 -->
+    </div> <!-- col-sm-12 -->
   </div> <!-- row -->
 <koken:else>
   <koken:note>

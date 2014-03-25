@@ -20,7 +20,7 @@
   </koken:head>
 
   <div class="row">
-    <div class="col-12">
+    <div class="col-sm-12">
       <ul class="pager">
         <koken:parent>
           <koken:variable name="previous_label" value="Newer" />
@@ -95,7 +95,7 @@
           </koken:content_video>
 
           <div class="row">
-            <div class="col-8">
+            <div class="col-sm-8">
               <h3>
                 {{ content.title | content.filename }}
               </h3>
@@ -105,8 +105,8 @@
               <koken:else>
                 <p>No caption set.</p>
               </koken:not>
-            </div> <!-- col-8 -->
-            <div class="col-4">
+            </div> <!-- col-sm-8 -->
+            <div class="col-sm-4">
               <p>
                 <strong>License:</strong> {{ content.license.clean }}
               </p>
@@ -169,7 +169,7 @@
                 <a href="http://maps.google.com/?q={{ geolocation.latitude }},{{ geolocation.longitude }}" target="_blank">View map</a>
               </koken:geolocation>
 
-            </div> <!-- col-4 -->
+            </div> <!-- col-sm-4 -->
           </div> <!-- row -->
         </div> <!-- tab-description -->
         <koken:exif>
@@ -199,7 +199,7 @@
           </div> <!-- tab-exif -->
         </koken:exif>
       </div> <!-- tab-content -->
-    </div> <!-- col-12 -->
+    </div> <!-- col-sm-12 -->
   </div> <!-- row -->
 <koken:else>
   <koken:note>

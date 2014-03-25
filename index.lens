@@ -2,48 +2,13 @@
 
 <koken:load>
   <div class="row">
-    <div class="col-12 index-slider">
+    <div class="col-sm-12 index-slider">
       <koken:pulse />
     </div> <!-- row -->
-  </div> <!-- col-12 -->
+  </div> <!-- col-sm-12 -->
 <koken:else>
   <koken:note>
     No featured content found. Assign content in the Library.
-  </koken:note>
-</koken:load>
-
-<koken:load source="featured_essays">
-  <div class="row">
-    <koken:loop>
-      <div class="col-4">
-        <div class="media">
-          <koken:featured_image>
-            <koken:link class="pull-left">
-              <koken:img width="128" height="128" class="media-object" />
-            </koken:link>
-          </koken:featured_image>
-
-          <div class="media-body">
-            <h4 class="media-heading">
-              <koken:link title="Read {{ essay.title }}">
-                {{ essay.title }}
-              </koken:link>
-            </h4>
-
-            <p>
-              {{ essay.excerpt truncate="160" }}
-              <koken:link title="Read {{ essay.title }}">
-                more
-              </koken:link>
-            </p>
-          </div> <!-- media-body -->
-        </div> <!-- media -->
-      </div> <!-- col-4 -->
-    </koken:loop>
-  </div> <!-- row -->
-<koken:else>
-  <koken:note>
-    No featured essays found. Assign essays in Text.
   </koken:note>
 </koken:load>
 

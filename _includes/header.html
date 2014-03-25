@@ -19,20 +19,22 @@
 
   <body>
 
-    <div class="navbar">
+    <div class="navbar navbar-default" role="navigation">
       <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <i class="icon-reorder"></i>
-        </button>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <i class="icon-reorder"></i>
+          </button>
 
-        <koken:link to="front" title="Home" class="navbar-brand">
-          {{ site.title }}
-        </koken:link>
-        <p class="navbar-text pull-left">{{ site.tagline }}</p>
+          <koken:link to="front" title="Home" class="navbar-brand">
+            {{ site.title }}
+          </koken:link>
+          <p class="navbar-text pull-left">{{ site.tagline }}</p>
+        </div> <!-- navbar-header -->
 
-        <div class="nav-collapse collapse navbar-responsive-collapse">
+        <div class="collapse navbar-collapse" id="navbar">
           <koken:navigation class="nav navbar-nav pull-right" />
-        </div> <!-- nav-collapse -->
+        </div> <!-- navbar-collapse -->
       </div> <!-- container -->
     </div> <!-- navbar -->
 

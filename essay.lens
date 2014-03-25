@@ -22,7 +22,7 @@
   </koken:head>
 
   <div class="row">
-    <div class="col-8">
+    <div class="col-sm-8">
       <ul class="pager">
         <koken:previous>
           <li class="previous">
@@ -81,7 +81,7 @@
             <h3>Related content</h3>
             <div class="row">
               <koken:loop>
-                <div class="col-lg-3">
+                <div class="col-sm-lg-3">
                   <div class="thumbnail">
                     <koken:link>
                       <koken:img size="1:1" />
@@ -93,7 +93,7 @@
                       <p>({{ album.counts.total }} images)</p>
                     </div> <!-- caption -->
                   </div> <!-- thumbnail -->
-                </div> <!-- col-lg-3 -->
+                </div> <!-- col-sm-lg-3 -->
               </koken:loop>
             </div> <!-- row -->
           </koken:topics>
@@ -126,8 +126,8 @@
           {{ discussion }}
         </koken:discussion>
       </article>
-    </div> <!-- col-8 -->
-    <div class="col-4">
+    </div> <!-- col-sm-8 -->
+    <div class="col-sm-4">
       <aside>
         <koken:categories>
           <koken:loop>
@@ -185,7 +185,7 @@
           </ul>
         </koken:load>
       </aside>
-    </div> <!-- col-4 -->
+    </div> <!-- col-sm-4 -->
   </div> <!-- row -->
 <koken:else>
   <koken:note>

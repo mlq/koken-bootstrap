@@ -25,7 +25,7 @@
   </koken:head>
 
   <div class="row">
-    <div class="col-12">
+    <div class="col-sm-12">
       <ul class="pager">
         <koken:previous>
           <li class="previous">
@@ -64,44 +64,58 @@
       </ul>
 
       <div class="row">
-        <div class="col-8">
+        <div class="col-sm-8">
           {{ album.description paragraphs="true" }}
 
           <koken:loop>
-            <h3>
-              <koken:link>{{ album.title }}</koken:link>
-            </h3>
-
-            <koken:link>
-              <koken:img size="8:5" />
-            </koken:link>
-
-            <p>{{ album.summary }}</p>
-
-            <koken:categories>
-              <p>
-                <strong>Categories:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ category.title }}
+            <article class="panel panel-default">
+              <header class="panel-heading">
+                <div class="pull-left">
+                  <koken:link title="View {{ album.title }}" class="panel-title">
+                    {{ album.title }}
                   </koken:link>
-                </koken:loop>
-              </p>
-            </koken:categories>
+                </div>
+                <div class="pull-right">
+                  <koken:time />
+                </div>
+                <div class="clearfix"></div>
+              </header>
 
-            <koken:tags>
-              <p>
-                <strong>Tags:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ title }}
-                  </koken:link>
-                </koken:loop>
-              </p>
-            </koken:tags>
+              <section class="panel-body">
+                <koken:link>
+                  <koken:img size="8:5" />
+                </koken:link>
+
+                <p>{{ album.summary }}</p>
+              </section>
+
+              <footer class="panel-footer">
+                <koken:categories>
+                  <p>
+                    <strong>Categories:</strong>
+                    <koken:loop separator=", ">
+                      <koken:link>
+                        {{ category.title }}
+                      </koken:link>
+                    </koken:loop>
+                  </p>
+                </koken:categories>
+
+                <koken:tags>
+                  <p>
+                    <strong>Tags:</strong>
+                    <koken:loop separator=", ">
+                      <koken:link>
+                        {{ title }}
+                      </koken:link>
+                    </koken:loop>
+                  </p>
+                </koken:tags>
+              </footer>
+            </article>
           </koken:loop>
-        </div> <!-- col-8 -->
-        <div class="col-4">
+        </div> <!-- col-sm-8 -->
+        <div class="col-sm-4">
           <koken:load source="archives" summary="true" limit_to="albums">
             <h3><i class="icon-calendar"></i> Date</h3>
             <ul>
@@ -140,11 +154,11 @@
               </koken:loop>
             </ul>
           </koken:load>
-        </div> <!-- col-4 -->
+        </div> <!-- col-sm-4 -->
       </div> <!-- row -->
 
       <koken:include file="_includes/pagination.html" />
-    </div> <!-- col-12 -->
+    </div> <!-- col-sm-12 -->
   </div> <!--row -->
 <koken:else>
   <koken:note>

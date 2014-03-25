@@ -1,7 +1,7 @@
 <koken:include file="_includes/header.html" />
 
 <div class="row">
-  <div class="col-12">
+  <div class="col-sm-12">
     <h1>Archives</h1>
 
     <!-- Load this template's source data (archives) and limit for pagination -->
@@ -57,7 +57,7 @@
 
       <koken:include file="_includes/pagination.html" />
     </koken:load>
-  </div> <!-- col-12-->
+  </div> <!-- col-sm-12-->
 </div> <!-- row -->
 
 <koken:include file="_includes/footer.html" />
