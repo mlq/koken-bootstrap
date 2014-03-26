@@ -2,107 +2,30 @@
 
 <koken:load limit="50">
   <div class="row">
-    <div class="col-sm-8">
-      <koken:loop>
-        <article class="panel panel-default item">
-          <header class="panel-heading">
-            <koken:link title="View {{ content.filename }}" class="panel-title">
-              {{ content.title | content.filename }}
-            </koken:link>
-          </header>
+    <koken:loop>
+      <div class="col-sm-4">
+        <koken:link class="thumbnail" title="View {{ content.filename }}">
+          <koken:content_image>
+            <koken:img />
+          </koken:content_image>
 
-          <section class="panelbody">
-            <koken:content_image>
-              <koken:link title="View {{ content.filename }}">
-                <koken:img />
-              </koken:link>
-            </koken:content_image>
-
-            <koken:content_video>
-              <koken:video />
-            </koken:content_video>
-
-            <p>
-              {{ content.caption }}
-            </p>
-          </section>
-
-          <footer class="panel-footer">
-            <p>{{ content.date }}</p>
-            <koken:categories>
-              <p>
-                <strong>Categories:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ category.title }}
-                  </koken:link>
-                </koken:loop>
-              </p>
-            </koken:categories>
-
-            <koken:tags>
-              <p>
-                <strong>Tags:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ tag.title }}
-                  </koken:link>
-                </koken:loop>
-              </p>
-            </koken:tags>
-          </footer>
-        </article>
-      </koken:loop>
-
-      <p>
-        <koken:include file="_include/pagination.html" />
-      </p>
-    </div> <!-- col-sm-8-->
-    <div class="col-sm-4">
-      <koken:load source="archives" summary="true" limit_to="content">
-        <h3><i class="fa fa-calendar"></i> Date</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_contents">
-                {{ title }} ({{ counts.content }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-
-      <koken:load source="categories" summary="true" limit_to="content" order_by="content_count">
-        <h3><i class="fa fa-folder"></i> Category</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_contents">
-                {{ title }} ({{ counts.content }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-
-      <koken:load source="tags" summary="true" limit_to="content" order_by="content_count">
-        <h3><i class="fa fa-tags"></i> Tags</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_contents">
-                {{ title }} ({{ counts.content }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-
-    </div> <!-- col-sm-4 -->
-  </div> <!-- row -->
+          <koken:content_video>
+            <koken:img />
+          </koken:content_video>
+        </koken:link>
+      </div>
+    </koken:loop>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <koken:include file="_include/pagination.html" />
+    </div>
+  </div>
 <koken:else>
   <koken:note>
-    No favorites found. Assign some in the Library.
+    <div class="alert alert-warning">
+      <p>No favorites found. Assign some in the library.</p>
+    </div>
   </koken:note>
 </koken:load>
 
