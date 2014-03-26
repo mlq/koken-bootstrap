@@ -35,7 +35,7 @@
     </div>
     <div class="col-sm-3">
       <aside>
-        <koken:include file="_include/timeline-sidebar.html" />
+        <koken:include file="_include/sidebar-timeline.html" />
       </aside>
     </div>
   </div>
