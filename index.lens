@@ -2,7 +2,7 @@
 
 <koken:load>
   <div class="row">
-    <div class="col-sm-12 index-slider">
+    <div class="col-sm-12">
       <koken:pulse />
     </div> <!-- row -->
   </div> <!-- col-sm-12 -->

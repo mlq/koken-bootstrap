@@ -1,93 +1,34 @@
 <koken:include file="_layout/header.html" />
 
-<koken:load limit="10">
+<koken:load limit="12">
   <div class="row">
-    <div class="col-sm-8">
-      <koken:loop>
-        <article class="panel panel-default item">
-          <header class="panel-heading">
-            <div class="pull-left">
-              <koken:link title="View {{ album.title }}" class="panel-title">
-                {{ album.title }}
-              </koken:link>
-            </div>
-            <div class="pull-right">
-              <koken:time />
-            </div>
-            <div class="clearfix"></div>
-          </header>
-
-          <section class="panel-body">
-            <koken:link>
-              <koken:img size="8:5" />
+    <koken:loop>
+      <div class="col-xs-6 col-md-4">
+        <div class="thumbnail">
+            <koken:link title="View {{ album.title }}">
+              <koken:img size="8:5" lazy="true" />
             </koken:link>
 
-            {{ album.summary paragraphs="true" }}
-          </section>
-
-          <footer class="panel-footer">
-            <koken:categories>
-              <p>
-                <strong>Categories:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ category.title }}
-                  </koken:link>
-                </koken:loop>
-              </p>
-            </koken:categories>
-
-            <koken:tags>
-              <p>
-                <strong>Tags:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ tag.title }}
-                  </koken:link>
-                </koken:loop>
-              </p>
-            </koken:tags>
-          </footer>
-        </article>
-      </koken:loop>
-
-      <koken:include file="_include/pagination.html" />
-    </div> <!-- col-sm-8-->
-    <div class="col-sm-4">
-      <koken:load source="categories" summary="true" limit_to="albums" order_by="album_count">
-        <h3><i class="fa fa-folder"></i> Category</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="category">
-                {{ title }} ({{ counts.albums }})
+            <div class="caption">
+              <koken:link title="View {{ album.title }}">
+                <h3>{{ album.title }}</h3>
               </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-
-      <koken:load source="tags" summary="true" limit_to="albums" order_by="album_count">
-        <h3><i class="fa fa-tags"></i> Tags</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="tag">
-                {{ title }} ({{ counts.albums }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-    </div> <!-- col-sm-4 -->
-  </div> <!-- row -->
+            </div>
+        </div>
+      </div>
+    </koken:loop>
+  </div>
+  <div class="row">
+    <koken:include file="_include/pagination.html" />
+  </div>
 <koken:else>
   <koken:note>
-    No sets found. Create some in the Library.
+    <div class="alert alert-warning">
+      <p>No sets found.</p>
+    </div>
   </koken:note>
 </koken:load>
 
-<!-- Turn on keyboard scrolling (left/right arrow keys). Target each set. -->
-<koken:keyboard_scroll element="div.item" />
+<koken:keyboard_scroll element="div.thumbnail" />
 
 <koken:include file="_layout/footer.html" />
