@@ -3,111 +3,39 @@
 <koken:load limit="10">
   <div class="row">
     <div class="col-sm-8">
-      <koken:loop>
-        <article class="panel panel-default">
-          <header class="panel-heading">
-            <div class="pull-left">
-              <h3 class="panel-title"><koken:link>{{ essay.title }}</koken:link></h3>
-            </div>
-            <div class="pull-right">
-              <koken:time />
-            </div>
-            <div class="clearfix"></div>
-          </header>
 
-          <section class="panel-body">
-            {{ essay.content }}
-          </section>
+      <section role="main">
+        <koken:loop>
+          <article class="panel panel-default">
+            <header class="panel-heading">
+              <div class="pull-left">
+                <h3 class="panel-title"><koken:link>{{ essay.title }}</koken:link></h3>
+              </div>
+              <div class="pull-right">
+                <koken:time />
+              </div>
+              <div class="clearfix"></div>
+            </header>
 
-          <footer class="panel-footer">
-            <!-- Link to any albums assigned as the essay's topic -->
-            <koken:topics>
-              <p>
-                <strong>Topics:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ album.title }}
-                  </koken:link>
-                </koken:loop>
-              </p>
-            </koken:topics>
+            <section class="panel-body">
+              {{ essay.content }}
+            </section>
+          </article>
+        </koken:loop>
 
-            <!-- Publish the essay's categories. Links to archive.essays.lens -->
-            <koken:categories>
-            <p>
-              <strong>Category:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ category.title }}
-                  </koken:link>
-                </koken:loop>
-            </p>
-            </koken:categories>
+        <koken:include file="_include/pagination.html" />
+      </section>
 
-            <!-- Publish the essays' tags. Links to archive.essays.lens -->
-            <koken:tags>
-              <p>
-                <strong>Tags:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ tag.title }}
-                  </koken:link>
-                </koken:loop>
-              </p>
-            </koken:tags>
-          </footer>
-        </article>
-      </koken:loop>
-
-      <koken:include file="_include/pagination.html" />
-    </div> <!-- col-sm-8 -->
+    </div>
     <div class="col-sm-4">
-      <koken:load source="archives" summary="true" limit_to="essays" order_by="essay_count">
-        <h3><i class="fa fa-calendar"></i> Date</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_essays">
-                {{ title }} ({{ counts.essays }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-
-      <koken:load source="categories" summary="true" limit_to="essays" order_by="essay_count">
-        <h3><i class="fa fa-folder"></i> Category</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_essays">
-                {{ title }} ({{ counts.essays }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-
-      <koken:load source="tags" summary="true" limit_to="essays" order_by="essay_count">
-        <h3><i class="fa fa-tags"></i> Tags</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_essays">
-                {{ title }} ({{ counts.essays }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-
-      <h3><i class="fa fa-rss"></i> RSS</h3>
-      <a href="{{ rss.essays }}">Subscribe to latest essays</a>
+      <koken:include file="_include/essay-sidebar.html" />
     </div> <!-- col-sm-4 -->
   </div> <!-- row -->
 <koken:else>
   <koken:note>
-    No essays found. Create some in Text.
+    <div class="alert alert-warning">
+      <p>No essays found.</p>
+    </div>
   </koken:note>
 </koken:load>
 

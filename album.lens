@@ -26,23 +26,7 @@
 
   <div class="row album">
     <div class="col-sm-12">
-      <ul class="pager">
-        <koken:previous>
-          <li class="previous">
-            <koken:link title="View {{ album.title }}">&larr; {{ album.title }}</koken:link>
-          </li>
-        </koken:previous>
-
-        <li>
-          <koken:link to="albums" bind_to_key="up">View all</koken:link>
-        </li>
-
-        <koken:next>
-          <li class="next">
-            <koken:link title="View {{ album.title }}">{{ album.title }} &rarr;</koken:link>
-          </li>
-        </koken:next>
-      </ul> <!-- pager -->
+      <koken:include file="_include/pager.html" />
 
       <ul class="nav nav-tabs">
         <li class="active disabled">

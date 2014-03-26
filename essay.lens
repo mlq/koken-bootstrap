@@ -23,51 +23,13 @@
 
   <div class="row">
     <div class="col-sm-8">
-      <ul class="pager">
-        <koken:previous>
-          <li class="previous">
-            <koken:link title="View {{ essay.title }}">&larr; {{ essay.title }}</koken:link>
-          </li>
-        </koken:previous>
-
-        <li>
-          <koken:link to="essays" bind_to_key="up">View all</koken:link>
-        </li>
-
-        <koken:next>
-          <li class="next">
-            <koken:link title="View {{ essay.title }}">{{ essay.title }} &rarr;</koken:link>
-          </li>
-        </koken:next>
-      </ul> <!-- pager -->
+      <koken:include file="_include/essay-pager.html" />
 
       <article>
-        <ul class="nav nav-tabs">
-          <li class="active disabled">
-            <a href="#">
-              {{ essay.title }}
-            </a>
-          </li>
-
-          <li class="dropdown pull-right">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="fa fa-share"></i> Share <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <koken:include file="_include/share-essay-list.html" />
-            </ul>
-          </li>
-          <li class="pull-right">
-            <koken:link>
-              <i class="fa fa-link"></i> Permalink
-            </koken:link>
-          </li>
-        </ul>
-
-        <header>
-          <h2>
+        <header class="page-header">
+          <h1>
             {{ essay.title }}
-          </h2>
+          </h1>
 
           <p>
             <strong>Published:</strong> <koken:time />
@@ -76,12 +38,12 @@
 
         {{ essay.content }}
 
-        <footer>
+        <aside>
           <koken:topics>
             <h3>Related content</h3>
             <div class="row">
               <koken:loop>
-                <div class="col-sm-lg-3">
+                <div class="col-sm-3">
                   <div class="thumbnail">
                     <koken:link>
                       <koken:img size="1:1" />
@@ -91,12 +53,21 @@
                         <h3>{{ album.title }}</h3>
                       </koken:link>
                       <p>({{ album.counts.total }} images)</p>
-                    </div> <!-- caption -->
-                  </div> <!-- thumbnail -->
-                </div> <!-- col-sm-lg-3 -->
+                    </div>
+                  </div>
+                </div>
               </koken:loop>
-            </div> <!-- row -->
+            </div>
           </koken:topics>
+
+          <div class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-share"></i> Share <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <koken:include file="_include/share-essay-list.html" />
+            </ul>
+          </div>
 
           <koken:categories>
             <p>
@@ -119,7 +90,7 @@
              </koken:loop>
             </p>
           </koken:tags>
-        </footer>
+        </aside>
 
         <koken:discussion>
           <h3>Comments</h3>
@@ -128,69 +99,9 @@
       </article>
     </div> <!-- col-sm-8 -->
     <div class="col-sm-4">
-      <aside>
-        <koken:categories>
-          <koken:loop>
-            <h3>{{ labels.essay.plural }} in {{ category.title }}</h3>
-              <koken:load source="essays" filter:category="{{ category.id }}">
-                <ul>
-                  <koken:loop>
-                    <li>
-                      <koken:link>
-                        {{ essay.title }}
-                      </koken:link>
-                    </li>
-                  </koken:loop>
-                </ul>
-              </koken:load>
-            </koken:loop>
-        </koken:categories>
-
-        <koken:load source="archives" summary="true" limit_to="essays" order_by="essay_count">
-          <h3><i class="fa fa-calendar"></i> Date</h3>
-          <ul>
-            <koken:loop>
-              <li>
-                <koken:link to="archive_essays">
-                  {{ title }} ({{ counts.essays }})
-                </koken:link>
-              </li>
-            </koken:loop>
-          </ul>
-        </koken:load>
-
-        <koken:load source="categories" summary="true" limit_to="essays" order_by="essay_count">
-          <h3><i class="fa fa-folder"></i> Category</h3>
-          <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_essays">
-                {{ title }} ({{ counts.essays }})
-              </koken:link>
-            </li>
-          </koken:loop>
-          </ul>
-        </koken:load>
-
-        <koken:load source="tags" summary="true" limit_to="essays" order_by="essay_count">
-          <h3><i class="fa fa-tags"></i> Tags</h3>
-          <ul>
-            <koken:loop>
-              <li>
-                <koken:link to="archive_essays">
-                  {{ title }} ({{ counts.essays }})
-                </koken:link>
-              </li>
-            </koken:loop>
-          </ul>
-        </koken:load>
-      </aside>
+      <koken:include file="_include/essay-sidebar.html" />
     </div> <!-- col-sm-4 -->
   </div> <!-- row -->
-<koken:else>
-  <koken:note>
-    No essay found. Create one in Text.
-  </koken:note>
 </koken:load>
 
 <koken:include file="_layout/footer.html" />

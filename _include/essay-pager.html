@@ -1,0 +1,26 @@
+        <koken:parent>
+          <koken:variable name="previous_label" value="Newer" />
+          <koken:variable name="next_label" value="Older" />
+        <koken:else>
+          <koken:variable name="previous_label" value="Previous" />
+          <koken:variable name="next_label" value="Next" />
+        </koken:parent>
+<nav>
+  <ul class="pager">
+    <koken:previous>
+      <li class="previous">
+        <koken:link title="View {{ essay.title }}">&larr; {{ essay.title }}</koken:link>
+      </li>
+    </koken:previous>
+
+    <li>
+      <koken:link to="essays" bind_to_key="up">View all</koken:link>
+    </li>
+
+    <koken:next>
+      <li class="next">
+        <koken:link title="View {{ essay.title }}">{{ essay.title }} &rarr;</koken:link>
+      </li>
+    </koken:next>
+  </ul>
+</nav>

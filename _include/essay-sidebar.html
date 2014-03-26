@@ -1,0 +1,67 @@
+<aside role="navigation">
+  <koken:load source="archives" summary="true" limit_to="essays" order_by="published_on">
+    <article class="panel panel-default">
+      <header class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-calendar"></i> Date</h3>
+      </header>
+      <section class="panel-body">
+        <ul>
+          <koken:loop>
+            <li>
+              <koken:link to="archive_essays">
+                {{ title }} ({{ counts.essays }})
+              </koken:link>
+            </li>
+          </koken:loop>
+        </ul>
+      </section>
+    </article>
+  </koken:load>
+
+  <koken:load source="categories" summary="true" limit_to="essays" order_by="title">
+    <article class="panel panel-default">
+      <header class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-folder"></i> Category</h3>
+      </header>
+      <section class="panel-body">
+        <ul>
+          <koken:loop>
+            <li>
+              <koken:link to="archive_essays">
+                {{ title }} ({{ counts.essays }})
+              </koken:link>
+            </li>
+          </koken:loop>
+        </ul>
+      </section>
+    </article>
+  </koken:load>
+
+  <koken:load source="tags" summary="true" limit_to="essays" order_by="title">
+    <article class="panel panel-default">
+      <header class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-tags"></i> Tags</h3>
+      </header>
+      <section class="panel-body">
+        <ul>
+          <koken:loop>
+            <li>
+              <koken:link to="archive_essays">
+                {{ title }} ({{ counts.essays }})
+              </koken:link>
+            </li>
+          </koken:loop>
+        </ul>
+      </section>
+    </article>
+  </koken:load>
+
+  <article class="panel panel-default">
+    <header class="panel-heading">
+      <h3 class="panel-title"><i class="fa fa-rss"></i> RSS</h3>
+    </header>
+    <section class="panel-body">
+      <p><a href="{{ rss.essays }}">Subscribe to latest essays</a></p>
+    </section>
+  </article>
+</aside>
