@@ -1,3 +1,13 @@
 *.swp
 *.swo
-static/css/koken-bootstrap.css
+*.diff
+*.err
+*.orig
+*.log
+*.zip
+*.vi
+*~
+node_modules
+koken-bootstrap/bower_components
+.tmp
+dist
