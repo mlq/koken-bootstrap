@@ -34,7 +34,9 @@
       </koken:loop>
     </div>
     <div class="col-sm-3">
-      <koken:include file="_include/timeline-sidebar.html" />
+      <aside>
+        <koken:include file="_include/timeline-sidebar.html" />
+      </aside>
     </div>
   </div>
 

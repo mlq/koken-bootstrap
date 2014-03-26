@@ -1,0 +1,69 @@
+<section class="panel panel-default">
+  <header class="panel-heading">
+    <h3 class="panel-title">
+      View {{ labels.timeline.singular case="lower" }} by month
+    </h3>
+  </header>
+  <section class="panel-body">
+    <koken:dates filter:scope="month">
+      <koken:select label="Select month" />
+    </koken:dates>
+  </section>
+</section>
+
+<koken:load source="featured_albums">
+  <section class="panel panel-default">
+    <header class="panel-heading">
+      <h3 class="panel-title">
+        Featured {{ labels.album.plural case="lower" }}
+      </h3>
+    </header>
+    <section class="panel-body">
+      <koken:loop>
+        <koken:link class="thumbnail" title="View {{ album.title }}">
+          <koken:img size="1:1" lazy="true" />
+        </koken:link>
+        <div class="caption">
+          <h4>
+            <koken:link title="View {{ album.title }}">
+              {{ album.title }}
+            </koken:link>
+          </h4>
+        </div>
+      </koken:loop>
+    </section>
+  </section>
+</koken:load>
+
+<koken:load source="featured_essays">
+  <section class="panel panel-default">
+    <header class="panel-heading">
+      <h3 class="panel-title">
+        Featured {{ labels.essay.plural case="lower" }}
+      </h3>
+    </header>
+    <section class="panel-body">
+      <koken:loop>
+        <koken:featured_image>
+          <koken:link class="thumbnail" title="View {{ album.title }}">
+            <koken:img size="1:1" lazy="true" />
+          </koken:link>
+        </koken:featured_image>
+        <div class="caption">
+          <h4>
+            <koken:link title="View {{ essay.title }}">
+              {{ essay.title }}
+            </koken:link>
+          </h4>
+
+          <p>
+            {{ essay.excerpt }}
+            <koken:link class="norm" title="View {{ essay.title }}">
+              Read more
+            </koken:link>
+          </p>
+        </div>
+      </koken:loop>
+    </section>
+  </section>
+</koken:load>

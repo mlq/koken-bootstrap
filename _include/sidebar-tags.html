@@ -1,0 +1,20 @@
+<koken:load source="tags">
+  <section class="panel panel-default">
+    <header class="panel-heading">
+      <h3 class="panel-title">
+        Tags
+      </h3>
+    </header>
+    <section class="panel-body">
+      <ul>
+        <koken:loop>
+          <li>
+            <koken:link title="View everything in {{ tag.title }}">
+              {{ tag.title }} ({{ tag.counts.total }})
+            </koken:link>
+          </li>
+        </koken:loop>
+      </ul>
+    </section>
+  </section>
+</koken:load>

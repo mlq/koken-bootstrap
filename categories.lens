@@ -1,0 +1,34 @@
+<koken:include file="_layout/header.html" />
+
+<div class="row">
+  <div class="col-sm-12">
+    <koken:load>
+      <koken:head>
+        <meta property="og:site_name" content="{{ site.title }}" />
+        <meta property="og:title" content="{{ labels.tag.plural }}" />
+        <meta property="og:description" content="{{ site.description strip_html='true' }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+      </koken:head>
+
+      <ul>
+        <koken:loop>
+          <li>
+            <koken:link title="View everything in {{ category.title }}">
+              {{ category.title }} ({{ category.counts.total }})
+            </koken:link>
+          </li>
+        </koken:loop>
+      </ul>
+
+    <koken:else>
+      <koken:note>
+        <div class="alert alert-warning">
+          <p>No categories found.</p>
+        </div>
+      </koken:note>
+    </koken:load>
+  </div>
+</div>
+
+<koken:include file="_layout/footer.html" />
