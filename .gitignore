@@ -1,2 +1,3 @@
 *.swp
-css/koken-bootstrap.css
+*.swo
+static/css/koken-bootstrap.css
