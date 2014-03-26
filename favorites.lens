@@ -10,7 +10,7 @@
           </koken:content_image>
 
           <koken:content_video>
-            <koken:img />
+            <koken:img size="1:1" />
           </koken:content_video>
         </koken:link>
       </div>

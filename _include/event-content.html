@@ -1,0 +1,47 @@
+<koken:event_content>
+	<article class="kevent">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="pull-left">
+          <koken:link title="View {{ album.title }}">
+            <h3 class="panel-title">
+              {{ content.title | content.filename }}
+            </h3>
+          </koken:link>
+        </div>
+        <div class="pull-right">
+          <koken:link to="date">
+            <koken:time relative="1" />
+          </koken:link>
+
+          &nbsp;
+
+          <span class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-share"></i> Share <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <koken:include file="_include/share-content-list.html" />
+            </ul>
+          </span>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="panel-body">
+			<koken:content_image>
+				<koken:link title="View {{ content.title | content.filename }}">
+					<koken:img lazy="true" />
+				</koken:link>
+			</koken:content_image>
+
+			<koken:content_video>
+				<koken:video />
+			</koken:content_video>
+
+			{{ content.caption paragraphs="true" }}
+      </div>
+    </div>
+	</article>
+
+	</koken:event_content>

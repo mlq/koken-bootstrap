@@ -1,0 +1,44 @@
+<koken:event_essay>
+	<article class="event">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="pull-left">
+          <koken:link title="View {{ album.title }}">
+            <h3 class="panel-title">
+              {{ essay.title }}
+            </h3>
+          </koken:link>
+        </div>
+        <div class="pull-right">
+          <koken:link to="date">
+            <koken:time relative="1" />
+          </koken:link>
+
+          &nbsp;
+
+          <span class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-share"></i> Share <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <koken:include file="_include/share-album-list.html" />
+            </ul>
+          </span>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="panel-body">
+        <koken:featured_image>
+          <koken:link title="View {{ essay.title }}">
+            <koken:img lazy="true" />
+          </koken:link>
+        </koken:featured_image>
+        <p>
+          {{ essay.excerpt }} <koken:link class="read_more" title="View {{ essay.title }}">Read more</koken:link>
+        </p>
+      </div>
+    </div>
+	</article>
+
+	</koken:event_essay>
