@@ -1,5 +1,6 @@
 *.swp
 *.swo
+*.swn
 *.diff
 *.err
 *.orig
@@ -8,6 +9,6 @@
 *.vi
 *~
 node_modules
-koken-bootstrap/bower_components
+bower_components
 .tmp
 dist

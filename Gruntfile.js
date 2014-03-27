@@ -16,9 +16,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-          './bower_components/jquery/jquery.js',
-          './bower_components/bootstrap/dist/js/bootstrap.js',
-          './bower_components/modernizr/modernizr.js'
+          './<%= pkg.name %>/assets/js/*.js'
         ],
         dest: "./dist/assets/js/<%= pkg.name %>.js"
       }
@@ -30,7 +28,7 @@ module.exports = function(grunt) {
           compress: true,
         },
         files: {
-          "./dist/assets/css/<%= pkg.name %>.css":"./<%= pkg.name %>/assets/less/style.less"
+          './dist/assets/css/<%= pkg.name %>.css': './<%= pkg.name %>/assets/less/style.less'
         }
       }
     },
@@ -42,6 +40,9 @@ module.exports = function(grunt) {
 
       dist: {
         files: {
+          './dist/assets/js/jquery.min.js': './bower_components/jquery/dist/jquery.js',
+          './dist/assets/js/bootstrap.min.js':'./bower_components/bootstrap/dist/js/bootstrap.js',
+          './dist/assets/js/modernizr.min.js':'./bower_components/modernizr/modernizr.js',
           './dist/assets/js/<%= pkg.name %>.min.js': './dist/assets/js/<%= pkg.name %>.js'
         }
       }
@@ -108,7 +109,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           dot: true,
-          cwd: './<%= pkg.name %>/bower_components/font-awesome',
+          cwd: './bower_components/font-awesome',
           dest: './dist/assets/',
           src: [
             'fonts/*'
