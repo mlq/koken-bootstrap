@@ -40,7 +40,6 @@ module.exports = function(grunt) {
 
       dist: {
         files: {
-          './dist/assets/js/jquery.min.js': './bower_components/jquery/dist/jquery.js',
           './dist/assets/js/bootstrap.min.js':'./bower_components/bootstrap/dist/js/bootstrap.js',
           './dist/assets/js/modernizr.min.js':'./bower_components/modernizr/modernizr.js',
           './dist/assets/js/<%= pkg.name %>.min.js': './dist/assets/js/<%= pkg.name %>.js'
