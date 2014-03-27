@@ -1,107 +1,109 @@
 <koken:include file="_layout/header.html" />
 
-<koken:load>
-  <koken:head>
-    <meta property="og:site_name" content="{{ site.title }}" />
-    <meta property="og:title" content="{{ essay.title strip_html="true" }}" />
-    <meta property="og:description" content="{{ essay.excerpt strip_html="true" }}" />
-    <meta property="og:url" content="{{ essay.url }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ essay.featured_image.presets.medium_large.url }}" />
-    <meta property="og:image:width" content="{{ essay.featured_image.presets.medium_large.width }}" />
-    <meta property="og:image:height" content="{{ essay.featured_image.presets.medium_large.height }}" />
-    <meta name="medium" content="article" />
-    <koken:not empty="profile.twitter">
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="{{ essay.title truncate="70" }}" />
-      <meta name="twitter:site" content="@{{ profile.twitter }}" />
-      <meta name="twitter:creator" content="@{{ profile.twitter }}" />
-      <meta name="twitter:description" content="{{ essay.excerpt truncate="200" strip_html="true" }}" />
-      <meta name="twitter:image" content="{{ essay.featured_image.presets.medium_large.url }}" />
-    </koken:not>
-  </koken:head>
+<div class="essay">
+  <koken:load>
+    <koken:head>
+      <meta property="og:site_name" content="{{ site.title }}" />
+      <meta property="og:title" content="{{ essay.title strip_html="true" }}" />
+      <meta property="og:description" content="{{ essay.excerpt strip_html="true" }}" />
+      <meta property="og:url" content="{{ essay.url }}" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="{{ essay.featured_image.presets.medium_large.url }}" />
+      <meta property="og:image:width" content="{{ essay.featured_image.presets.medium_large.width }}" />
+      <meta property="og:image:height" content="{{ essay.featured_image.presets.medium_large.height }}" />
+      <meta name="medium" content="article" />
+      <koken:not empty="profile.twitter">
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="{{ essay.title truncate="70" }}" />
+        <meta name="twitter:site" content="@{{ profile.twitter }}" />
+        <meta name="twitter:creator" content="@{{ profile.twitter }}" />
+        <meta name="twitter:description" content="{{ essay.excerpt truncate="200" strip_html="true" }}" />
+        <meta name="twitter:image" content="{{ essay.featured_image.presets.medium_large.url }}" />
+      </koken:not>
+    </koken:head>
 
-  <div class="row">
-    <div class="col-sm-8">
-      <koken:include file="_include/essay-pager.html" />
+    <div class="row">
+      <div class="col-sm-8">
+        <koken:include file="_include/essay-pager.html" />
 
-      <article>
-        <header class="page-header">
-          <h1>
-            {{ essay.title }}
-          </h1>
+        <article>
+          <header class="page-header">
+            <h1>
+              {{ essay.title }}
+            </h1>
 
-          <p>
-            <strong>Published:</strong> <koken:time />
-          </p>
-        </header>
+            <p>
+              <strong>Published:</strong> <koken:time />
+            </p>
+          </header>
 
-        {{ essay.content }}
+          {{ essay.content }}
 
-        <aside>
-          <koken:topics>
-            <h3>Related content</h3>
-            <div class="row">
-              <koken:loop>
-                <div class="col-sm-3">
-                  <div class="thumbnail">
-                    <koken:link>
-                      <koken:img size="1:1" />
-                    </koken:link>
-                    <div class="caption">
+          <aside>
+            <koken:topics>
+              <h3>Related content</h3>
+              <div class="row">
+                <koken:loop>
+                  <div class="col-sm-3">
+                    <div class="thumbnail">
                       <koken:link>
-                        <h3>{{ album.title }}</h3>
+                        <koken:img size="1:1" />
                       </koken:link>
-                      <p>({{ album.counts.total }} images)</p>
+                      <div class="caption">
+                        <koken:link>
+                          <h3>{{ album.title }}</h3>
+                        </koken:link>
+                        <p>({{ album.counts.total }} images)</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </koken:loop>
+                </koken:loop>
+              </div>
+            </koken:topics>
+
+            <div class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-share"></i> Share <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <koken:include file="_include/share-essay-list.html" />
+              </ul>
             </div>
-          </koken:topics>
 
-          <div class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="fa fa-share"></i> Share <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <koken:include file="_include/share-essay-list.html" />
-            </ul>
-          </div>
+            <koken:categories>
+              <p>
+                <strong>Category:</strong>
+                <koken:loop separator=", ">
+                  <koken:link>
+                    {{ category.title }}
+                  </koken:link>
+                </koken:loop>
+              </p>
+            </koken:categories>
 
-          <koken:categories>
-            <p>
-              <strong>Category:</strong>
-              <koken:loop separator=", ">
-                <koken:link>
-                  {{ category.title }}
-                </koken:link>
-              </koken:loop>
-            </p>
-          </koken:categories>
+            <koken:tags>
+              <p>
+                <strong>Tags:</strong>
+                <koken:loop separator=", ">
+                  <koken:link>
+                    {{ tag.title }}
+                  </koken:link>
+               </koken:loop>
+              </p>
+            </koken:tags>
+          </aside>
 
-          <koken:tags>
-            <p>
-              <strong>Tags:</strong>
-              <koken:loop separator=", ">
-                <koken:link>
-                  {{ tag.title }}
-                </koken:link>
-             </koken:loop>
-            </p>
-          </koken:tags>
-        </aside>
-
-        <koken:discussion>
-          <h3>Comments</h3>
-          {{ discussion }}
-        </koken:discussion>
-      </article>
-    </div> <!-- col-sm-8 -->
-    <div class="col-sm-4">
-      <koken:include file="_include/essay-sidebar.html" />
-    </div> <!-- col-sm-4 -->
-  </div> <!-- row -->
-</koken:load>
+          <koken:discussion>
+            <h3>Comments</h3>
+            {{ discussion }}
+          </koken:discussion>
+        </article>
+      </div> <!-- col-sm-8 -->
+      <div class="col-sm-4">
+        <koken:include file="_include/essay-sidebar.html" />
+      </div> <!-- col-sm-4 -->
+    </div> <!-- row -->
+  </koken:load>
+</div>
 
 <koken:include file="_layout/footer.html" />

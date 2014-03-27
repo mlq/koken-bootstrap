@@ -1,36 +1,38 @@
 <koken:include file="_layout/header.html" />
 
-<koken:load>
+<div class="tag">
+  <koken:load>
 
-  <koken:head>
-    <meta property="og:site_name" content="{{ site.title }}" />
-    <meta property="og:description" content="{{ site.description strip_html='true' }}" />
-    <meta property="og:title" content="{{ labels.timeline.plural }}" />
-    <meta property="og:type" content="blog" />
-    <meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
-  </koken:head>
+    <koken:head>
+      <meta property="og:site_name" content="{{ site.title }}" />
+      <meta property="og:description" content="{{ site.description strip_html='true' }}" />
+      <meta property="og:title" content="{{ labels.timeline.plural }}" />
+      <meta property="og:type" content="blog" />
+      <meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+    </koken:head>
 
-  <div class="row">
-    <div class="col-sm-9">
-      <koken:loop>
-        <koken:event>
-          <koken:include file="_include/event-album.html" />
-          <koken:include file="_include/event-album-update.html" />
-          <koken:include file="_include/event-content.html" />
-          <koken:include file="_include/event-essay.html" />
-        </koken:event>
-      </koken:loop>
+    <div class="row">
+      <div class="col-sm-9">
+        <koken:loop>
+          <koken:event>
+            <koken:include file="_include/event-album.html" />
+            <koken:include file="_include/event-album-update.html" />
+            <koken:include file="_include/event-content.html" />
+            <koken:include file="_include/event-essay.html" />
+          </koken:event>
+        </koken:loop>
+      </div>
+      <div class="col-sm-3">
+        <aside>
+          <koken:include file="_include/sidebar-categories.html" />
+          <koken:include file="_include/sidebar-tags.html" />
+          <koken:include file="_include/sidebar-timeline.html" />
+        </aside>
+      </div>
     </div>
-    <div class="col-sm-3">
-      <aside>
-        <koken:include file="_include/sidebar-categories.html" />
-        <koken:include file="_include/sidebar-tags.html" />
-        <koken:include file="_include/sidebar-timeline.html" />
-      </aside>
-    </div>
-  </div>
 
-  <koken:include file="_include/pagination.html" />
+    <koken:include file="_include/pagination.html" />
 
-  <koken:keyboard_scroll element=".item" />
-</koken:load>
+    <koken:keyboard_scroll element=".item" />
+  </koken:load>
+</div>

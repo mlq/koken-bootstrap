@@ -1,130 +1,132 @@
 <koken:include file="_layout/header.html" />
 
-<koken:load limit="30">
-  <koken:head>
-    <meta property="og:site_name" content="{{ site.title }}" />
-    <meta property="og:title" content="{{ album.title strip_html="true" }}" />
-    <meta property="og:description" content="{{ album.summary | album.description strip_html="true" }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ album.url }}" />
-    <koken:covers><koken:shift>
-    <meta property="og:image" content="{{ content.presets.medium_large.url }}" />
-    <meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
-    <meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
-    </koken:shift></koken:covers>
-    <koken:not empty="profile.twitter">
-      <meta name="twitter:card" content="gallery" />
-      <meta name="twitter:site" content="@{{ profile.twitter }}" />
-      <meta name="twitter:creator" content="@{{ profile.twitter }}" />
-      <koken:covers minimum="4" limit="4">
-        <koken:loop>
-          <meta name="twitter:image{{ index }}" content="{{ content.presets.medium_large.cropped.url }}">
-        </koken:loop>
-      </koken:covers>
-    </koken:not>
-  </koken:head>
+<div class="album">
+  <koken:load limit="30">
+    <koken:head>
+      <meta property="og:site_name" content="{{ site.title }}" />
+      <meta property="og:title" content="{{ album.title strip_html="true" }}" />
+      <meta property="og:description" content="{{ album.summary | album.description strip_html="true" }}" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="{{ album.url }}" />
+      <koken:covers><koken:shift>
+      <meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+      <meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+      <meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+      </koken:shift></koken:covers>
+      <koken:not empty="profile.twitter">
+        <meta name="twitter:card" content="gallery" />
+        <meta name="twitter:site" content="@{{ profile.twitter }}" />
+        <meta name="twitter:creator" content="@{{ profile.twitter }}" />
+        <koken:covers minimum="4" limit="4">
+          <koken:loop>
+            <meta name="twitter:image{{ index }}" content="{{ content.presets.medium_large.cropped.url }}">
+          </koken:loop>
+        </koken:covers>
+      </koken:not>
+    </koken:head>
 
-  <div class="row album">
-    <div class="col-sm-12">
-      <koken:include file="_include/pager.html" />
+    <div class="row">
+      <div class="col-sm-12">
+        <koken:include file="_include/pager.html" />
 
-      <ul class="nav nav-tabs">
-        <li class="active disabled">
-          <a href="#">
-            {{ album.title }}
-          </a>
-        </li>
+        <ul class="nav nav-tabs">
+          <li class="active disabled">
+            <a href="#">
+              {{ album.title }}
+            </a>
+          </li>
 
-        <koken:if true="album.public">
-        <li class="dropdown pull-right">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="fa fa-share"></i> Share <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <koken:include file="_include/share-album-list.html" />
-          </ul>
-        </li>
-        </koken:if>
-        <li class="pull-right">
-          <a href="{{ album.rss }}">
-            <i class="fa fa-rss"></i> RSS
-          </a>
-        </li>
-        <li class="pull-right">
-          <koken:link lightbox="true" class="button" bind_to_key="l">
-            <i class="fa fa-expand"></i> Lightbox
-          </koken:link>
-        </li>
-      </ul>
-
-      <div class="row">
-        <div class="col-sm-8">
-          <h2>
-            {{ album.title }}
-          </h2>
-
-          {{ album.description paragraphs="true" }}
-        </div> <!-- col-sm-8 -->
-        <div class="col-sm-4">
-          <koken:topics>
-            <p>
-              <strong>Related content:</strong>
-              <koken:loop separator=", ">
-                <koken:link>
-                  {{ essay.title }}
-                </koken:link>
-              </koken:loop>
-            </p>
-          </koken:topics>
-
-          <koken:categories>
-            <p>
-              <strong>Categories:</strong>
-              <koken:loop separator=", ">
-                <koken:link>
-                  {{ category.title }}
-                </koken:link>
-              </koken:loop>
-            </p>
-          </koken:categories>
-
-          <koken:tags>
-            <p>
-              <strong>Tags:</strong>
-              <koken:loop separator=", ">
-                <koken:link>
-                  {{ tag.title }}
-                </koken:link>
-              </koken:loop>
-            </p>
-          </koken:tags>
-
-          <koken:parent>
-            <p>
-              <strong>From the set:</strong> <koken:link title="View {{ album.title }}">
-              {{ album.title }}</koken:link>
-            </p>
-          </koken:parent>
-        </div> <!-- col-sm-4 -->
-      </div> <!-- row -->
-
-      <div class="row thumbnails">
-        <koken:loop>
-          <div class="col-sm-2">
-            <koken:link class="thumbnail">
-              <koken:img size="1:1" />
+          <koken:if true="album.public">
+          <li class="dropdown pull-right">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-share"></i> Share <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <koken:include file="_include/share-album-list.html" />
+            </ul>
+          </li>
+          </koken:if>
+          <li class="pull-right">
+            <a href="{{ album.rss }}">
+              <i class="fa fa-rss"></i> RSS
+            </a>
+          </li>
+          <li class="pull-right">
+            <koken:link lightbox="true" class="button" bind_to_key="l">
+              <i class="fa fa-expand"></i> Lightbox
             </koken:link>
-          </div>
-        </koken:loop>
-      </div> <!-- row -->
+          </li>
+        </ul>
 
-      <koken:include file="_include/pagination.html" />
-    </div> <!-- col-sm-12 -->
-  </div> <!-- row -->
-<koken:else>
-  <koken:note>
-    No album loaded
-  </koken:note>
-</koken:load>
+        <div class="row">
+          <div class="col-sm-8">
+            <h2>
+              {{ album.title }}
+            </h2>
+
+            {{ album.description paragraphs="true" }}
+          </div> <!-- col-sm-8 -->
+          <div class="col-sm-4">
+            <koken:topics>
+              <p>
+                <strong>Related content:</strong>
+                <koken:loop separator=", ">
+                  <koken:link>
+                    {{ essay.title }}
+                  </koken:link>
+                </koken:loop>
+              </p>
+            </koken:topics>
+
+            <koken:categories>
+              <p>
+                <strong>Categories:</strong>
+                <koken:loop separator=", ">
+                  <koken:link>
+                    {{ category.title }}
+                  </koken:link>
+                </koken:loop>
+              </p>
+            </koken:categories>
+
+            <koken:tags>
+              <p>
+                <strong>Tags:</strong>
+                <koken:loop separator=", ">
+                  <koken:link>
+                    {{ tag.title }}
+                  </koken:link>
+                </koken:loop>
+              </p>
+            </koken:tags>
+
+            <koken:parent>
+              <p>
+                <strong>From the set:</strong> <koken:link title="View {{ album.title }}">
+                {{ album.title }}</koken:link>
+              </p>
+            </koken:parent>
+          </div> <!-- col-sm-4 -->
+        </div> <!-- row -->
+
+        <div class="row thumbnails">
+          <koken:loop>
+            <div class="col-sm-2">
+              <koken:link class="thumbnail">
+                <koken:img size="1:1" />
+              </koken:link>
+            </div>
+          </koken:loop>
+        </div> <!-- row -->
+
+        <koken:include file="_include/pagination.html" />
+      </div> <!-- col-sm-12 -->
+    </div> <!-- row -->
+  <koken:else>
+    <koken:note>
+      No album loaded
+    </koken:note>
+  </koken:load>
+</div>
 
 <koken:include file="_layout/footer.html" />

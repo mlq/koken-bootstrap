@@ -1,34 +1,36 @@
 <koken:include file="_layout/header.html" />
 
-<koken:load limit="12">
-  <div class="row">
-    <koken:loop>
-      <div class="col-xs-6 col-md-4">
-        <div class="thumbnail">
-            <koken:link title="View {{ album.title }}">
-              <koken:img size="8:5" lazy="true" />
-            </koken:link>
-
-            <div class="caption">
+<div class="sets">
+  <koken:load limit="12">
+    <div class="row">
+      <koken:loop>
+        <div class="col-xs-6 col-md-4">
+          <div class="thumbnail">
               <koken:link title="View {{ album.title }}">
-                <h3>{{ album.title }}</h3>
+                <koken:img size="8:5" lazy="true" />
               </koken:link>
-            </div>
-        </div>
-      </div>
-    </koken:loop>
-  </div>
-  <div class="row">
-    <koken:include file="_include/pagination.html" />
-  </div>
-<koken:else>
-  <koken:note>
-    <div class="alert alert-warning">
-      <p>No sets found.</p>
-    </div>
-  </koken:note>
-</koken:load>
 
-<koken:keyboard_scroll element="div.thumbnail" />
+              <div class="caption">
+                <koken:link title="View {{ album.title }}">
+                  <h3>{{ album.title }}</h3>
+                </koken:link>
+              </div>
+          </div>
+        </div>
+      </koken:loop>
+    </div>
+    <div class="row">
+      <koken:include file="_include/pagination.html" />
+    </div>
+  <koken:else>
+    <koken:note>
+      <div class="alert alert-warning">
+        <p>No sets found.</p>
+      </div>
+    </koken:note>
+
+    <koken:keyboard_scroll element="div.thumbnail" />
+  </koken:load>
+</div>
 
 <koken:include file="_layout/footer.html" />

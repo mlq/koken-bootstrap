@@ -1,32 +1,34 @@
 <koken:include file="_layout/header.html" />
 
-<koken:load limit="50">
-  <div class="row">
-    <koken:loop>
-      <div class="col-sm-4">
-        <koken:link class="thumbnail" title="View {{ content.filename }}">
-          <koken:content_image>
-            <koken:img />
-          </koken:content_image>
+<div class="favorites">
+  <koken:load limit="50">
+    <div class="row">
+      <koken:loop>
+        <div class="col-sm-4">
+          <koken:link class="thumbnail" title="View {{ content.filename }}">
+            <koken:content_image>
+              <koken:img />
+            </koken:content_image>
 
-          <koken:content_video>
-            <koken:img size="1:1" />
-          </koken:content_video>
-        </koken:link>
+            <koken:content_video>
+              <koken:img size="1:1" />
+            </koken:content_video>
+          </koken:link>
+        </div>
+      </koken:loop>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <koken:include file="_include/pagination.html" />
       </div>
-    </koken:loop>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <koken:include file="_include/pagination.html" />
     </div>
-  </div>
-<koken:else>
-  <koken:note>
-    <div class="alert alert-warning">
-      <p>No favorites found. Assign some in the library.</p>
-    </div>
-  </koken:note>
-</koken:load>
+  <koken:else>
+    <koken:note>
+      <div class="alert alert-warning">
+        <p>No favorites found. Assign some in the library.</p>
+      </div>
+    </koken:note>
+  </koken:load>
+</div>
 
 <koken:include file="_layout/footer.html" />

@@ -1,55 +1,57 @@
 <koken:include file="_layout/header.html" />
 
-<koken:load>
+<div class="timeline">
+  <koken:load>
 
-  <koken:head>
-    <meta property="og:site_name" content="{{ site.title }}" />
-    <meta property="og:description" content="{{ site.description strip_html='true' }}" />
-    <meta property="og:title" content="{{ labels.timeline.plural }}" />
-    <meta property="og:type" content="blog" />
-    <meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
-  </koken:head>
+    <koken:head>
+      <meta property="og:site_name" content="{{ site.title }}" />
+      <meta property="og:description" content="{{ site.description strip_html='true' }}" />
+      <meta property="og:title" content="{{ labels.timeline.plural }}" />
+      <meta property="og:type" content="blog" />
+      <meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+    </koken:head>
 
-  <div class="row">
-    <div class="col-sm-9">
-      <koken:loop>
-        <article>
-          <header>
-            <h1 class="top">
-              <koken:link title="View everything published this day">
-                <koken:time />
-              </koken:link>
-            </h1>
-          </header>
+    <div class="row">
+      <div class="col-sm-9">
+        <koken:loop>
+          <article>
+            <header>
+              <h1 class="top">
+                <koken:link title="View everything published this day">
+                  <koken:time />
+                </koken:link>
+              </h1>
+            </header>
 
-          <div class="event">
-            <koken:event>
-              <koken:include file="_include/event-album.html" />
-              <koken:include file="_include/event-album-update.html" />
-              <koken:include file="_include/event-content.html" />
-              <koken:include file="_include/event-essay.html" />
-            </koken:event>
-          </div>
-        </article>
-      </koken:loop>
+            <div class="event">
+              <koken:event>
+                <koken:include file="_include/event-album.html" />
+                <koken:include file="_include/event-album-update.html" />
+                <koken:include file="_include/event-content.html" />
+                <koken:include file="_include/event-essay.html" />
+              </koken:event>
+            </div>
+          </article>
+        </koken:loop>
+      </div>
+      <div class="col-sm-3">
+        <aside>
+          <koken:include file="_include/sidebar-timeline.html" />
+        </aside>
+      </div>
     </div>
-    <div class="col-sm-3">
-      <aside>
-        <koken:include file="_include/sidebar-timeline.html" />
-      </aside>
-    </div>
-  </div>
 
-  <koken:include file="_include/pagination.html" />
+    <koken:include file="_include/pagination.html" />
 
-  <koken:keyboard_scroll element=".item" offset="-{{ settings.offset_top }}" />
+    <koken:keyboard_scroll element=".item" offset="-{{ settings.offset_top }}" />
 
-<koken:else>
-  <koken:note>
-    <div class="alert alert-warning">
-      <p>No timeline data found.</p>
-    </div>
-  </koken:note>
-</koken:load>
+  <koken:else>
+    <koken:note>
+      <div class="alert alert-warning">
+        <p>No timeline data found.</p>
+      </div>
+    </koken:note>
+  </koken:load>
+</div>
 
 <koken:include file="_layout/footer.html" />

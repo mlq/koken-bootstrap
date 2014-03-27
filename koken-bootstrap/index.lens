@@ -1,15 +1,19 @@
 <koken:include file="_layout/header.html" />
 
-<koken:load>
-  <div class="row">
-    <div class="col-sm-12">
-      <koken:pulse />
-    </div> <!-- row -->
-  </div> <!-- col-sm-12 -->
-<koken:else>
-  <koken:note>
-    No featured content found. Assign content in the Library.
-  </koken:note>
-</koken:load>
+<div class="index">
+  <koken:load>
+    <div class="row">
+      <div class="col-sm-12">
+        <koken:pulse />
+      </div> <!-- row -->
+    </div> <!-- col-sm-12 -->
+  <koken:else>
+    <koken:note>
+      <div class="alert alert-warning">
+        <p>No featured content found. Assign content in the library.</p>
+      </div>
+    </koken:note>
+  </koken:load>
+</div>
 
 <koken:include file="_layout/footer.html" />

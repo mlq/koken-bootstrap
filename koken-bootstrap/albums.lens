@@ -1,33 +1,35 @@
 <koken:include file="_layout/header.html" />
 
-<koken:load limit="12">
-  <div class="row">
-    <koken:loop>
-      <div class="col-xs-6 col-md-4">
-        <div class="thumbnail">
-            <koken:link title="View {{ album.title }}">
-              <koken:img size="8:5" lazy="true" />
-            </koken:link>
-
-            <div class="caption">
+<div class="albums">
+  <koken:load limit="12">
+    <div class="row">
+      <koken:loop>
+        <div class="col-xs-6 col-md-4">
+          <div class="thumbnail">
               <koken:link title="View {{ album.title }}">
-                <h3>{{ album.title }}</h3>
+                <koken:img size="8:5" lazy="true" />
               </koken:link>
-            </div>
+
+              <div class="caption">
+                <koken:link title="View {{ album.title }}">
+                  <h3>{{ album.title }}</h3>
+                </koken:link>
+              </div>
+          </div>
         </div>
-      </div>
-    </koken:loop>
-  </div>
-  <div class="row">
-    <koken:include file="_include/pagination.html" />
-  </div>
-<koken:else>
-  <koken:note>
-    <div class="alert alert-warning">
-      <p>No albums found.</p>
+      </koken:loop>
     </div>
-  </koken:note>
-</koken:load>
+    <div class="row">
+      <koken:include file="_include/pagination.html" />
+    </div>
+  <koken:else>
+    <koken:note>
+      <div class="alert alert-warning">
+        <p>No albums found.</p>
+      </div>
+    </koken:note>
+  </koken:load>
+</div>
 
 <koken:keyboard_scroll element="div.thumbnail" />
 

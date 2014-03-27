@@ -1,96 +1,99 @@
 <koken:include file="_layout/header.html" />
-<koken:load limit="10">
-  <div class="row">
-    <div class="col-sm-8">
-      <koken:loop>
-        <article class="panel item">
-          <header class="panel-heading">
-            <koken:link title="View {{ content.filename }}">
-              {{ content.title | content.filename }}
+
+<div class="archive-contents">
+  <koken:load limit="10">
+    <div class="row">
+      <div class="col-sm-8">
+        <koken:loop>
+          <article class="panel item">
+            <header class="panel-heading">
+              <koken:link title="View {{ content.filename }}">
+                {{ content.title | content.filename }}
+              </koken:link>
+            </header>
+
+            <koken:link>
+              <koken:img size="8:5" />
             </koken:link>
-          </header>
 
-          <koken:link>
-            <koken:img size="8:5" />
-          </koken:link>
+            {{ content.summary paragraphs="true" }}
 
-          {{ content.summary paragraphs="true" }}
+            <footer class="panel-footer">
+              <p>{{ content.date }}</p>
+              <koken:categories>
+                <p>
+                  <strong>Categories:</strong>
+                  <koken:loop separator=", ">
+                    <koken:link>
+                      {{ category.title }}
+                    </koken:link>
+                  </koken:loop>
+                </p>
+              </koken:categories>
 
-          <footer class="panel-footer">
-            <p>{{ content.date }}</p>
-            <koken:categories>
-              <p>
-                <strong>Categories:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ category.title }}
-                  </koken:link>
-                </koken:loop>
-              </p>
-            </koken:categories>
+              <koken:tags>
+                <p>
+                  <strong>Tags:</strong>
+                  <koken:loop separator=", ">
+                    <koken:link>
+                      {{ tag.title }}
+                    </koken:link>
+                  </koken:loop>
+                </p>
+              </koken:tags>
+            </footer>
+          </article>
+        </koken:loop>
 
-            <koken:tags>
-              <p>
-                <strong>Tags:</strong>
-                <koken:loop separator=", ">
-                  <koken:link>
-                    {{ tag.title }}
-                  </koken:link>
-                </koken:loop>
-              </p>
-            </koken:tags>
-          </footer>
-        </article>
-      </koken:loop>
+        <koken:include file="_include/pagination.html" />
+      </div> <!-- col-sm-8 -->
+      <div class="col-sm-4">
+        <koken:load source="archives" summary="true" limit_to="content">
+          <h3><i class="fa fa-calendar"></i> Date</h3>
+          <ul>
+            <koken:loop>
+              <li>
+                <koken:link to="archive_contents">
+                  {{ title }} ({{ counts.content }})
+                </koken:link>
+              </li>
+            </koken:loop>
+          </ul>
+        </koken:load>
 
-      <koken:include file="_include/pagination.html" />
-    </div> <!-- col-sm-8 -->
-    <div class="col-sm-4">
-      <koken:load source="archives" summary="true" limit_to="content">
-        <h3><i class="fa fa-calendar"></i> Date</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_contents">
-                {{ title }} ({{ counts.content }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
+        <koken:load source="categories" summary="true" limit_to="content" order_by="content_count">
+          <h3><i class="fa fa-folder"></i> Category</h3>
+          <ul>
+            <koken:loop>
+              <li>
+                <koken:link to="archive_contents">
+                  {{ title }} ({{ counts.content }})
+                </koken:link>
+              </li>
+            </koken:loop>
+          </ul>
+        </koken:load>
 
-      <koken:load source="categories" summary="true" limit_to="content" order_by="content_count">
-        <h3><i class="fa fa-folder"></i> Category</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_contents">
-                {{ title }} ({{ counts.content }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-
-      <koken:load source="tags" summary="true" limit_to="content" order_by="content_count">
-        <h3><i class="fa fa-tags"></i> Tags</h3>
-        <ul>
-          <koken:loop>
-            <li>
-              <koken:link to="archive_contents">
-                {{ title }} ({{ counts.content }})
-              </koken:link>
-            </li>
-          </koken:loop>
-        </ul>
-      </koken:load>
-    </div> <!-- col-sm-4 -->
-  </div> <!-- row -->
-<koken:else>
-  <koken:note>
-    No public albums found
-  </koken:note>
-</koken:load>
+        <koken:load source="tags" summary="true" limit_to="content" order_by="content_count">
+          <h3><i class="fa fa-tags"></i> Tags</h3>
+          <ul>
+            <koken:loop>
+              <li>
+                <koken:link to="archive_contents">
+                  {{ title }} ({{ counts.content }})
+                </koken:link>
+              </li>
+            </koken:loop>
+          </ul>
+        </koken:load>
+      </div> <!-- col-sm-4 -->
+    </div> <!-- row -->
+  <koken:else>
+    <koken:note>
+      No public albums found
+    </koken:note>
+  </koken:load>
+</div>
 
 <koken:keyboard_scroll element="div.item" />
 
