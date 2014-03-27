@@ -12,6 +12,7 @@ Features
   * [Grunt](http://grunt.js) is used to build, preview and test your template
   * Package management with [Bower](http://bower.io/)
   * Responsive design
+  * Feature detection with [Modernizr](http://modernizr.com)
 
 Installation
 ------------
